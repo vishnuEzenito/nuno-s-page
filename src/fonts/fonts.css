@@ -1,0 +1,28 @@
+/* fonts.css */
+
+@font-face {
+    font-family: 'classicsans';
+    src: url('/fonts/classicsansrounded-medium.otf') format('opentype');
+    font-weight: medium;
+  }
+  
+  @font-face {
+    font-family: 'classicsans';
+    src: url('/fonts/classicsansrounded-bold.otf') format('opentype');
+    font-weight: bold;
+  }
+  
+  @font-face {
+    font-family: 'classicsans';
+    src: url('/fonts/classicsansrounded-light.otf') format('opentype');
+    font-weight: 'light'; /* You may need to adjust this value based on your font */
+  }
+  
+  @font-face {
+    font-family: 'YourFontName';
+    src: url('/fonts/classicsansrounded-xlight.otf') format('opentype');
+    font-weight: lighter;
+  }
+  
+  /* Additional font faces for other styles if needed */
+  
