@@ -7,7 +7,6 @@ import { Toolbar } from '@mui/material';
 import Link from "next/link";
 
 
-import { HomeData } from "@/lib/constants";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Skeleton from '@mui/material/Skeleton';
@@ -15,26 +14,6 @@ import Stack from '@mui/material/Stack';
 import '../../../fonts/fonts.css'
 
 
-
-const images = [
-  { bgimg: `${HomeData.hero.deskTopImgUrl}`,
-   hdr1:'A global B2B marketplace for Sustainable Procurement',
-   hdr2:'for Sustainable Procurement',
-   subhdr1:'We help companies make sustainable procurements so that',
-   subhdr1_1:'supply chains can operate in harmony with the environment.',
-   subhdr2:'Choose us for hassle-free procurement of raw material to',
-   subhdr2_1:'reduce the environmental footprint of your business.',
-   img1:`${HomeData.hero.title.img1}`,
-   img1txt:'Reduce Carbon Footprint',
-   img2:`${HomeData.hero.title.img2}`,
-   img2txt:'Supply Chain Resilience​',
-   img3:`${HomeData.hero.title.img3}`,
-   img3txt:'Quality Assurance',
-   img4:`${HomeData.hero.title.img4}`,
-   img4txt:'Verified Suppliers'},
-
-  { bgimg: `${HomeData.hero.deskTopImgUrl2}`, hdr1:'A platform to simplify your sustainable sourcing experience',hdr2:'sustainable sourcing experience',subhdr1:'Discover raw material and products that are good for your', subhdr1_1:'Business and for the Planet.',subhdr2:'We bring together trusted suppliers , partners and experts so',subhdr2_1:'you can search, quote and purchase - all in one place!',img1:`${HomeData.hero.title.img5}`,img1txt:'Renewable',img2:`${HomeData.hero.title.img6}`,img2txt:'Biodegradable',img3:`${HomeData.hero.title.img7}`,img3txt:'Low Environmental Footprint',img4:`${HomeData.hero.title.img8}`,img4txt:'Certified Sustainable'}
-];
 
 const Hero = () => {
 
