@@ -37,45 +37,43 @@ const HomeData = {
         list: [
             {
                 id: 1,
-                imgUrl: "/cat1.png",
+                imgUrl: "/assets/canvas1.png",
                 url: "",
-                text: "Eco-friendly Cutlery and Food Packaging"
+                tag:'Free',
+                text: "Negotiate Canvas",
+                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
             },
             {
                 id: 2,
-                imgUrl: "/cat7.png",
+                imgUrl: "/assets/canvas1.png",
                 url: "",
-                text: "Sustainable packaging"
+                tag:'Free',
+                text: "Negotiate Canvas",
+                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
             },
             {
                 id: 3,
-                imgUrl: "/cat6.png",
+                imgUrl: "/assets/canvas1.png",
                 url: "",
-                text: "Green Building material"
+                tag:'Free',
+                text: "Negotiate Canvas",
+                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
             },
             {
                 id: 4,
-                imgUrl: "/cat5.png",
+                imgUrl: "/assets/canvas1.png",
                 url: "",
-                text: "Recycled Plastic"
+                tag:'Free',
+                text: "Negotiate Canvas",
+                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
             },
             {
                 id: 5,
-                imgUrl: "/cat4.png",
+                imgUrl: "/assets/canvas1.png",
                 url: "",
-                text: "Sustainable Textiles, Yarns & Fibres"
-            },
-            {
-                id: 6,
-                imgUrl: "/cat3.png",
-                url: "",
-                text: "Green Office Supplies"
-            },
-            {
-                id: 7,
-                imgUrl: "/cat2.png",
-                url: "",
-                text: "Resource efficiency technologies​"
+                tag:'Free',
+                text: "Negotiate Canvas",
+                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
             },
         ]
     },
