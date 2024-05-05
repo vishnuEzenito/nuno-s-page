@@ -154,12 +154,13 @@ export default function StoreNavBar({ activeComponent }: NavBarProps) {
               {menuItems.map((item) => (
                 <Link href={item.url} key={item.id}>
                  <ListItemText primary={item.title} sx={{
+                       color:'#333',
+                       borderBottom: activeComponent === item.url ? '2px solid #B34038' : 'none', // Add line under active page
                       '& .css-10hburv-MuiTypography-root': {
                         fontFamily: 'CircularStd, sans-serif',
                         fontWeight: 400,
                         fontSize: "18px",
-                        color: activeComponent === item.url ? '#000' : '#333', // Change color for active page
-                        borderBottom: activeComponent === item.url ? '2px solid #B34038' : 'none', // Add line under active page
+                        color: '#333', // Change color for active page
                       }
                     }}/>
                 </Link>
