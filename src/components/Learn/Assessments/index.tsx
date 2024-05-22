@@ -1,5 +1,5 @@
 import { Button } from "@nextui-org/react";
-import React , { useRef } from "react";
+import React , { useRef,useState } from "react";
 import { HomeData } from "@/lib/constants";
 import { Typography,useMediaQuery, useTheme, Box,Paper,IconButton,Tooltip} from '@mui/material';
 import FeatherIcon from 'feather-icons-react';
@@ -8,10 +8,13 @@ import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRound
 import {ArrowUpRight,Star} from 'react-feather';
 import Link from "next/link";
 import '../../../fonts/fonts.css'
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe('pk_test_51P9UN318WhMcYo2CgHGjvYSegQMpLYcJYzL83bvjUeTWecIATBQ1xhEWBVPLBKbEzucL5Z8kuqjrWvMmqzs11hWW00ntEQ4KIS');
 
 
 
-export default function Canvas() {
+export default function Assessments() {
 
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -25,6 +28,24 @@ export default function Canvas() {
       (scrollContainerRef.current as HTMLElement).scrollLeft += scrollOffset;
     }
   };
+  const [stripe, setStripe] = useState(null);
+
+  const handleClick = async () => {
+    if (!stripe) return;
+       {/* @ts-ignore */}
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [{ price: 'price_1PI2OU18WhMcYo2CCFaLHJrx', quantity: 1 }],
+      mode: 'payment',
+      successUrl: 'https://impactnegotiations.vercel.app/',
+      cancelUrl: 'https://impactnegotiations.vercel.app/learn',
+    });
+
+    if (error) {
+      console.error('Error:', error);
+    }
+  };
+   {/* @ts-ignore */}
+  stripePromise.then(setStripe);
   
 
 
@@ -33,27 +54,28 @@ export default function Canvas() {
     <link href="https://cdn.jsdelivr.net/npm/@vetixy/circular-std@1.0.0/dist/index.min.css" rel="stylesheet"></link>
    <Box sx={{background:'#FCFCFC'}}>
    <Typography variant="h1" sx={{ whiteSpace:'break-spaces',textAlign: 'center',fontFamily: 'classicsans', fontWeight: "bold", color: '#333333', fontSize: isSmallScreen ? '28px' : '45px', px: isSmallScreen ? '1.25rem' : (isMediumScreen ? '4.5rem' : (isLargeScreen ? '4.5rem' : (isExtraLargeScreen ? '5.5rem' : '4.5rem'))), mt: isSmallScreen ? '2rem' : (isMediumScreen ? '3rem' : (isLargeScreen ? '3rem' : (isExtraLargeScreen ? '3rem' : '3rem'))), mb:'0.5rem' }}>
-              Negotiation Canvas Examples
+              Negotiation  Assessments
              </Typography>
              <Typography variant="subtitle2" sx={{textAlign:'center', whiteSpace: isMediumScreen?'balance':'break-spaces',fontFamily: 'classicsans', fontWeight: 'light', color: '#333333', fontSize: isSmallScreen ? '14px' : '20px' }}>
-             Start from pre-filled Canvas examples and adapt them to your situation        
+             Take our quizzes, assessments and get individual insights to help you develop as a negotiator        
           </Typography>
 
   <div style={{overflowX: 'auto', overflowY:'hidden', flexWrap: 'nowrap', padding: '1rem', paddingLeft: isSmallScreen?'1.5rem':'4rem', display: 'flex', alignItems: 'center', scrollbarWidth: 'none', msOverflowStyle: 'none',marginTop:'2rem' }} ref={scrollContainerRef}>
-    {HomeData.category.list.map((item, index) => (
+    {HomeData.AssessmentData.list.map((item, index) => (
  <Box key={index} sx={{ display: 'inline-block', marginLeft: '2rem', marginBottom: '0.5rem' }}> {/* Added marginBottom */}
-
-      <Paper
+   {/* @ts-ignore */}
+      <Paper onClick={handleClick} disabled={!stripe} 
       key={index}
       sx={{
         position:'relative',
         borderRadius: '16px',
         height: isSmallScreen ? '100%' : '417px',
         width: isSmallScreen ? '300px' : '314px',
+        pb: '2rem'
       }}
+      
     >
       {/* @ts-ignore */}
-   <Link href={'https://figma.com'} key={index}>
     {/* @ts-ignore */}
     <Paper
       elevation={0}
@@ -64,7 +86,7 @@ export default function Canvas() {
         height: isSmallScreen ? 'auto' : 'auto',
         width: isSmallScreen ? 'auto' : 'auto',
         m:'1rem',
-        background:'#43C4F2'
+        background:'#B34038'
       }}
     >   
     <Typography 
@@ -106,10 +128,10 @@ export default function Canvas() {
               sx={{
                 color: '#333333',
                 fontFamily: 'classicsans',
-                fontWeight: "bold",
+                fontWeight: "Bold",
                 fontSize: isSmallScreen ? '12px' : '20px',
                 textAlign: 'left',
-                whiteSpace: 'nowrap',
+                whiteSpace: 'break-spaces',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
               }}
@@ -133,7 +155,7 @@ export default function Canvas() {
             fontWeight: "light",
             fontSize: '16px',
             pl:'4px',
-            whiteSpace: 'pre-wrap' // or 'normal' depending on your preference
+            whiteSpace: 'pre-wrap', // or 'normal' depending on your preference
           }}
         >
          {item.description}
@@ -142,7 +164,6 @@ export default function Canvas() {
 
   
             </Box>
-          </Link>
     </Paper>
       </Box>
     ))}

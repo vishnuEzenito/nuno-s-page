@@ -7,34 +7,17 @@ import { Toolbar } from '@mui/material';
 import Link from "next/link";
 
 
-import { HomeData } from "@/lib/constants";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import '../../../fonts/fonts.css'
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe('pk_test_51P9UN318WhMcYo2CgHGjvYSegQMpLYcJYzL83bvjUeTWecIATBQ1xhEWBVPLBKbEzucL5Z8kuqjrWvMmqzs11hWW00ntEQ4KIS');
 
 
 
-const images = [
-  { bgimg: `${HomeData.hero.deskTopImgUrl}`,
-   hdr1:'A global B2B marketplace for Sustainable Procurement',
-   hdr2:'for Sustainable Procurement',
-   subhdr1:'We help companies make sustainable procurements so that',
-   subhdr1_1:'supply chains can operate in harmony with the environment.',
-   subhdr2:'Choose us for hassle-free procurement of raw material to',
-   subhdr2_1:'reduce the environmental footprint of your business.',
-   img1:`${HomeData.hero.title.img1}`,
-   img1txt:'Reduce Carbon Footprint',
-   img2:`${HomeData.hero.title.img2}`,
-   img2txt:'Supply Chain Resilience​',
-   img3:`${HomeData.hero.title.img3}`,
-   img3txt:'Quality Assurance',
-   img4:`${HomeData.hero.title.img4}`,
-   img4txt:'Verified Suppliers'},
-
-  { bgimg: `${HomeData.hero.deskTopImgUrl2}`, hdr1:'A platform to simplify your sustainable sourcing experience',hdr2:'sustainable sourcing experience',subhdr1:'Discover raw material and products that are good for your', subhdr1_1:'Business and for the Planet.',subhdr2:'We bring together trusted suppliers , partners and experts so',subhdr2_1:'you can search, quote and purchase - all in one place!',img1:`${HomeData.hero.title.img5}`,img1txt:'Renewable',img2:`${HomeData.hero.title.img6}`,img2txt:'Biodegradable',img3:`${HomeData.hero.title.img7}`,img3txt:'Low Environmental Footprint',img4:`${HomeData.hero.title.img8}`,img4txt:'Certified Sustainable'}
-];
 
 const Hero = () => {
 
@@ -45,20 +28,33 @@ const Hero = () => {
   const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up('xl'));
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 0); // Simulating 2 seconds delay
-  }, []);
+  const [stripe, setStripe] = useState(null);
+
+  const handleClick = async () => {
+    if (!stripe) return;
+   {/* @ts-ignore */}
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [{ price: 'price_1PHgS118WhMcYo2CkPYQkfYE', quantity: 1 }],
+      mode: 'payment',
+      successUrl: 'https://impactnegotiations.vercel.app/',
+      cancelUrl: 'https://impactnegotiations.vercel.app/learn',
+    });
+
+    if (error) {
+      console.error('Error:', error);
+    }
+  };
+   {/* @ts-ignore */}
+  stripePromise.then(setStripe);
 
   return (<>
 
-    <Box sx={{ mt:"2rem", pb:'2rem',width:'100%', height: 'auto',px: isSmallScreen ? '1.25rem' : (isMediumScreen ? '4.5rem' : (isLargeScreen ? '4.5rem' : (isExtraLargeScreen ? '5.5rem' : '4.5rem')))}}>
+    <Box sx={{ mt:"6rem", pb:'2rem',width:'100%', height: 'auto',px: isSmallScreen ? '1.25rem' : (isMediumScreen ? '4.5rem' : (isLargeScreen ? '4.5rem' : (isExtraLargeScreen ? '5.5rem' : '4.5rem')))}}>
   
         <Grid container spacing={{ xs:2, md:2, xl: 4 }} sx={{flexWrap: 'wrap'}}>
         <Grid item key={'HeroImage'} xs={12} md={4} lg={4}>
       <img
-    src={'/assets/book.png'}
+    src={'/assets/BookMock.png'}
     alt='bgimage'
     style={{
       width: '100%',
@@ -76,7 +72,7 @@ const Hero = () => {
           Nuno Delicado is a negotiation expert with extensive experience in complex negotiations worldwide. Learn from this practical guide and negotiate for maximum impact     
           </Typography>
           <Box sx={{display:"flex",flexDirection:'row',gap:'2rem'}}>
-          <ButtonBase  sx={{
+          <ButtonBase role="link" onClick={handleClick} disabled={!stripe}  sx={{
                 mt:'2rem',
                 borderRadius: '12px',
                 width:'auto'}}>
@@ -101,9 +97,8 @@ const Hero = () => {
                 borderRadius: '12px',
                 background:'#EEEEEE',
                 width:'auto',
-                px:'1rem',
+                px:'1.5rem',
                 py:'0.3rem',
-                maxWidth: 'auto',
                 }}>
                 <Typography variant="body2" sx={{ whiteSpace:'break-spaces',textAlign:'center',fontFamily: 'CircularStd, sans-serif', fontWeight: 100, color:'#333333',fontSize:isSmallScreen ? '14px' : '20px',py:'0.5rem'}}>
                 Get Free Sample

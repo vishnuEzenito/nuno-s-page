@@ -77,6 +77,50 @@ const HomeData = {
             },
         ]
     },
+    AssessmentData: {
+        list: [
+            {
+                id: 1,
+                imgUrl: "/assets/assessment.png",
+                url: "",
+                tag:'Paid',
+                text: "Negotiator Tendencies Assessment",
+                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
+            },
+            {
+                id: 2,
+                imgUrl: "/assets/assessment.png",
+                url: "",
+                tag:'Paid',
+                text: "Assumptions Menu: Development",
+                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
+            },
+            {
+                id: 3,
+                imgUrl: "/assets/assessment.png",
+                url: "",
+                tag:'Paid',
+                text: "Assumptions Menu: Development",
+                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
+            },
+            {
+                id: 4,
+                imgUrl: "/assets/assessment.png",
+                url: "",
+                tag:'Paid',
+                text: "Assumptions Menu: My next negotiation",
+                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
+            },
+            {
+                id: 5,
+                imgUrl: "/assets/assessment.png",
+                url: "",
+                tag:'Paid',
+                text: "Assumptions Menu: My next negotiation",
+                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
+            },
+        ]
+    },
     cta: {
         section1: {
             title: {

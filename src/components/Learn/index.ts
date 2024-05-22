@@ -1,4 +1,6 @@
-
 import Hero from "./Hero";
 import Canvas from "./Canvas";
-export { Hero,Canvas};
+import Assessments from "./Assessments";
+
+
+export { Hero,Canvas,Assessments};

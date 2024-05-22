@@ -7,7 +7,7 @@ export const tools: Array<Tool> = [
 		label: "Negotiate",
 		icon: "/icons/blocks.svg",
 		theme: {
-			background: "#FBCCB0",
+			background: "#FEEFE6",
 		},
 		items: [
 			{
@@ -109,7 +109,7 @@ export const tools: Array<Tool> = [
 		label: "Connect",
 		icon: "/icons/arch.svg",
 		theme: {
-			background: "#C7E9F4",
+			background: "#EEFAFF",
 		},
 		items: [
 			{
