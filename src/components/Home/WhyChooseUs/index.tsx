@@ -1,6 +1,7 @@
 import { HomeData } from '@/lib/constants'
 import Image from 'next/image'
 import React from 'react'
+
 import { Typography,useMediaQuery, useTheme, Box,Toolbar,Paper,Grid } from '@mui/material';
 import '../../../fonts/fonts.css'
 

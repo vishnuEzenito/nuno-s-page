@@ -1,5 +1,5 @@
 import { Button } from "@nextui-org/react";
-import React , { useRef,useState,useEffect } from "react";
+import React , { useRef,useEffect } from "react";
 import { HomeData } from "@/lib/constants";
 import useProductList from '@/lib/hooks'
 
@@ -10,13 +10,10 @@ import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRound
 import {ArrowUpRight,Star} from 'react-feather';
 import Link from "next/link";
 import '../../../fonts/fonts.css'
-import { loadStripe } from '@stripe/stripe-js';
-
-const stripePromise = loadStripe('pk_test_51P9UN318WhMcYo2CgHGjvYSegQMpLYcJYzL83bvjUeTWecIATBQ1xhEWBVPLBKbEzucL5Z8kuqjrWvMmqzs11hWW00ntEQ4KIS');
 
 
 
-export default function Assessments() {
+export default function Books() {
 
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -24,134 +21,92 @@ export default function Assessments() {
   const isLargeScreen = useMediaQuery(theme.breakpoints.between('lg', 'xl'));
   const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up('xl'));
   const scrollContainerRef = useRef(null);
-  const { fetchAssessmentData } = useProductList();
-  
+  const { fetchBookData } = useProductList();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if ((HomeData.AssessmentData.list).length === 0) {
-        await fetchAssessmentData();
-      } else if ((HomeData.AssessmentData.list).length !== 0) {
-        console.log("Assess homie",HomeData.AssessmentData.list)
-      }      
-      console.log(HomeData.AssessmentData.list)
-
-    };
-
-    fetchData();
-  }, []); 
 
   const scroll = (scrollOffset: number) => {
     if (scrollContainerRef.current) {
       (scrollContainerRef.current as HTMLElement).scrollLeft += scrollOffset;
     }
   };
-  const [stripe, setStripe] = useState(null);
-
-  const handleClick = async () => {
-    if (!stripe) return;
-       {/* @ts-ignore */}
-    const { error } = await stripe.redirectToCheckout({
-      lineItems: [{ price: 'price_1PI2OU18WhMcYo2CCFaLHJrx', quantity: 1 }],
-      mode: 'payment',
-      successUrl: 'https://impactnegotiations.vercel.app/',
-      cancelUrl: 'https://impactnegotiations.vercel.app/learn',
-    });
-
-    if (error) {
-      console.error('Error:', error);
-    }
-  };
-   {/* @ts-ignore */}
-  stripePromise.then(setStripe);
   
+  useEffect(() => {
+    const fetchData = async () => {
+      if (HomeData.books.records.length === 0) {
+        await fetchBookData();
+      } else if (HomeData.books.records.length !== 0) {
+        console.log("homie",HomeData.books.records)
+      }      
+      console.log(HomeData.books.records)
 
+    };
 
+    fetchData();
+  }, []);
+
+  console.log()
   return (<>
 
     <link href="https://cdn.jsdelivr.net/npm/@vetixy/circular-std@1.0.0/dist/index.min.css" rel="stylesheet"></link>
-   <Box sx={{background:'#FFFFFF'}}>
+   <Box sx={{background:'#FCFCFC'}}>
    <Typography variant="h1" sx={{ whiteSpace:'break-spaces',textAlign: 'center',fontFamily: 'classicsans', fontWeight: "bold", color: '#333333', fontSize: isSmallScreen ? '28px' : '45px', px: isSmallScreen ? '1.25rem' : (isMediumScreen ? '4.5rem' : (isLargeScreen ? '4.5rem' : (isExtraLargeScreen ? '5.5rem' : '4.5rem'))), mt: isSmallScreen ? '2rem' : (isMediumScreen ? '3rem' : (isLargeScreen ? '3rem' : (isExtraLargeScreen ? '3rem' : '3rem'))), mb:'0.5rem' }}>
-              Negotiation  Assessments
+   Go deeper with our bibliography
              </Typography>
              <Typography variant="subtitle2" sx={{textAlign:'center', whiteSpace: isMediumScreen?'balance':'break-spaces',fontFamily: 'classicsans', fontWeight: 'light', color: '#333333', fontSize: isSmallScreen ? '14px' : '20px' }}>
-             Take our quizzes, assessments and get individual insights to help you develop as a negotiator        
+             Take a deep dive on particular topics through the books that inspired our tools        
           </Typography>
-          {HomeData.AssessmentData.list.length !== 0 && (
+
   <div style={{overflowX: 'auto', overflowY:'hidden', flexWrap: 'nowrap', padding: '1rem', paddingLeft: isSmallScreen?'1.5rem':'4rem', display: 'flex', alignItems: 'center', scrollbarWidth: 'none', msOverflowStyle: 'none',marginTop:'2rem' }} ref={scrollContainerRef}>
-    {HomeData.AssessmentData.list.map((item, index) => (
+    {HomeData.books.records.map((item, index) => (
  <Box key={index} sx={{ display: 'inline-block', marginLeft: '2rem', marginBottom: '0.5rem' }}> {/* Added marginBottom */}
-   {/* @ts-ignore */}
-      <Paper    onClick={() => { if (item.fields.tag === 'Paid') { handleClick();} else if (item.fields.tag === 'Free') { window.location.href = item.fields.formlink;}}} disabled={item.fields.tag === 'Paid' && !stripe}
+
+      <Paper
       key={index}
       sx={{
         position:'relative',
         borderRadius: '16px',
-        height: isSmallScreen ? '100%' : '417px',
+        height: isSmallScreen ? '100%' : '450px',
         width: isSmallScreen ? '300px' : '314px',
-        pb: '2rem'
+        paddingTop:'1rem'
       }}
-      
     >
       {/* @ts-ignore */}
-    <Paper elevation={0} sx={{ background: item.fields.tag === 'Paid' ? '#B34038' : item.fields.tag === 'Free' ? '#43C4F2' : '#defaultColor', // Set a default color if neither condition is met
-        position:'absolute',
-        borderRadius: '100px',
-        top:0,
-        height: isSmallScreen ? 'auto' : 'auto',
-        width: isSmallScreen ? 'auto' : 'auto',
-        m:'1rem',
-      }}
-    >   
-    <Typography 
-                variant="body2" 
-                component="div" 
-                sx={{ 
-                  color: '#fff', 
-                  fontFamily: 'CircularStd, sans-serif', 
-                  fontWeight: 400,
-                  fontSize: isSmallScreen?'10px':'12px',
-                  px:'1rem',
-                  py:'0.41rem'
-                }}
-              >
-                {/* @ts-ignore */}
-               {item.fields.tag}
-              </Typography>
-    </Paper>
-
+   <Link href={item.fields.refer} key={index}>
+    {/* @ts-ignore */}
     
  {/* @ts-ignore */}
-<img src={item.fields.imageurl[0].url} alt={item.fields.assessmentname}
+<img src={item.fields.Coverimg[0].url} alt={item.text}
   style={{
-    width: '100%',
-    height: '60%',
-    objectFit: 'cover',
-    borderTopLeftRadius: '16px',
-    borderTopRightRadius: '16px',
+    marginLeft:'1rem',
+    marginRight:'1rem',
+    width: '90%',
+    height: '75%',
+    objectFit: 'fill',
+    borderRadius : '12px'
   }}
+
 />
       <Box sx={{ p: '1rem', height: '100%', display: 'flex', flexDirection: 'column' }}>
-  
+        {/* @ts-ignore */}
          <Box sx={{display:'flex',flexDirection:'row',width:'100%',pt:'0.75rem'}}>          
             <Box sx={{ textAlign:"left", width: '90%',whiteSpace:'break-spaces',p:'0'}}>
             {/* @ts-ignore */}
-            <Tooltip title={item.fields.assessmentname} arrow>
+            <Tooltip title={item.fields.Bookname} arrow>
             <Typography
               variant="body2"
               sx={{
                 color: '#333333',
                 fontFamily: 'classicsans',
-                fontWeight: "Bold",
+                fontWeight: "bold",
                 fontSize: isSmallScreen ? '12px' : '20px',
                 textAlign: 'left',
-                whiteSpace: 'break-spaces',
+                whiteSpace: 'nowrap',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
               }}
             >
               {/* @ts-ignore */}
-              {item.fields.assessmentname}
+              {item.fields.Bookname}
             </Typography>
             </Tooltip>
             </Box>
@@ -169,21 +124,21 @@ export default function Assessments() {
             fontWeight: "light",
             fontSize: '16px',
             pl:'4px',
-            whiteSpace: 'pre-wrap', // or 'normal' depending on your preference
+            whiteSpace: 'pre-wrap' // or 'normal' depending on your preference
           }}
-        > 
+        >
         {/* @ts-ignore */}
-         {item.fields.description}
+         {item.fields.Authorname}
         </Typography>          
 </Box>
 
   
             </Box>
+          </Link>
     </Paper>
       </Box>
     ))}
   </div>
-  )}
   <Box sx={{ display: 'flex', flexDirection:'row' , justifyContent: 'center', alignItems: 'center', p:'0px',mt:'1rem',mb:'2.5rem'}}>
   <IconButton
           onClick={() => scroll(-700)}

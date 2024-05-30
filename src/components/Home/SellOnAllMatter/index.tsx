@@ -68,6 +68,7 @@ const Hero = () => {
                 mt:'2rem',
                 borderRadius: '12px',
                 width:'auto'}}>
+                  <Link href="/tools" >
         <Paper sx={{
                 borderRadius: '12px',
                 background:'#B34038',
@@ -80,6 +81,7 @@ const Hero = () => {
                 Explore tools
                 </Typography>
               </Paper>
+              </Link>
               </ButtonBase>
               </Box>
       </Grid>

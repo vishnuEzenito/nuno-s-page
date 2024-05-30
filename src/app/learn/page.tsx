@@ -1,7 +1,7 @@
 'use client'
 
 import Footer from "@/components/Footer";
-import { Hero,Canvas,Assessments } from "@/components/Learn";
+import { Hero,Canvas,Assessments,Books } from "@/components/Learn";
 import NavBar from "@/components/Navbar";
 import Image from "next/image";
 import { Box } from '@mui/material';
@@ -20,6 +20,9 @@ export default function SellonAllMattr() {
       </Box>
       <Box sx={{ overflowX: 'hidden', whiteSpace: 'nowrap',background:'#FFFFFF',mb:'2rem' }}>
         <Assessments />
+      </Box>
+      <Box sx={{ overflowX: 'hidden', whiteSpace: 'nowrap',background:'#FCFCFC',mb:'2rem' }}>
+        <Books />
       </Box>
       </Box>
       <Box component="section" id="footer">

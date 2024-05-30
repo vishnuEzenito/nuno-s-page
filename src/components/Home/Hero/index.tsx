@@ -2,10 +2,11 @@
 
 import { Box, ButtonBase, Grid, Paper, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-
+import Link from "next/link";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import "../../../fonts/fonts.css";
+
 
 
 const Hero = () => {
@@ -16,11 +17,7 @@ const Hero = () => {
 	const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
 	const [loading, setLoading] = useState(true);
 
-	useEffect(() => {
-		setTimeout(() => {
-			setLoading(false);
-		}, 0); // Simulating 2 seconds delay
-	}, []);
+
 
 	return (
 		<>
@@ -119,7 +116,7 @@ const Hero = () => {
 								gap: "2rem",
 							}}
 						>
-							<ButtonBase
+							<ButtonBase href="#cta"
 								sx={{
 									mt: "2rem",
 									borderRadius: "12px",
@@ -163,13 +160,14 @@ const Hero = () => {
 									</Typography>
 								</Paper>
 							</ButtonBase>
-							<ButtonBase
+							<ButtonBase 
 								sx={{
 									mt: "2rem",
 									borderRadius: "12px",
 									width: "auto",
 								}}
 							>
+								<Link href="#knowmore" >
 								<Paper
 									sx={{
 										borderRadius: "12px",
@@ -206,6 +204,7 @@ const Hero = () => {
 										Know More
 									</Typography>
 								</Paper>
+								</Link>
 							</ButtonBase>
 						</Box>
 					</Grid>
@@ -320,6 +319,7 @@ const Hero = () => {
 									width: "auto",
 								}}
 							>
+								<Link href='/learn' >
 								<Paper
 									sx={{
 										borderRadius: "12px",
@@ -356,6 +356,7 @@ const Hero = () => {
 										Know More
 									</Typography>
 								</Paper>
+								</Link>
 							</ButtonBase>
 						</Box>
 					</Grid>

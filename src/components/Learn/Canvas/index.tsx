@@ -27,7 +27,6 @@ export default function Canvas() {
   };
   
 
-
   return (<>
 
     <link href="https://cdn.jsdelivr.net/npm/@vetixy/circular-std@1.0.0/dist/index.min.css" rel="stylesheet"></link>
@@ -40,7 +39,7 @@ export default function Canvas() {
           </Typography>
 
   <div style={{overflowX: 'auto', overflowY:'hidden', flexWrap: 'nowrap', padding: '1rem', paddingLeft: isSmallScreen?'1.5rem':'4rem', display: 'flex', alignItems: 'center', scrollbarWidth: 'none', msOverflowStyle: 'none',marginTop:'2rem' }} ref={scrollContainerRef}>
-    {HomeData.category.list.map((item, index) => (
+    {HomeData.canvas.list.map((item, index) => (
  <Box key={index} sx={{ display: 'inline-block', marginLeft: '2rem', marginBottom: '0.5rem' }}> {/* Added marginBottom */}
 
       <Paper
@@ -53,7 +52,7 @@ export default function Canvas() {
       }}
     >
       {/* @ts-ignore */}
-   <Link href={'https://figma.com'} key={index}>
+   <Link href={'https://www.figma.com/community/file/1377537588308456202'} key={index}>
     {/* @ts-ignore */}
     <Paper
       elevation={0}

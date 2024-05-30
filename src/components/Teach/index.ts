@@ -1,7 +1,6 @@
-import Category from "./Category";
-import CTA from "./CTA";
+import Contact from "./Contact";
 import Hero from "./Hero";
-import Benifits from "./Benifits";
-import Process from "./Process";
+import Blogs from "./Blogs";
+import BlogPost from "./Blogpost";
 
-export { Category, CTA, Hero, Benifits, Process};
+export { Contact, Hero, Blogs, BlogPost};
