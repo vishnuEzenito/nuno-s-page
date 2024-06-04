@@ -1,3 +1,5 @@
+'use client';
+
 import React,{useEffect, useState} from 'react';
 import { Button, Typography, Grid,Box,ButtonBase,Paper } from '@mui/material';
 import { Toolbar } from '@mui/material';

@@ -1,4 +1,5 @@
 // components/HeroCarousel.js
+'use client';
 
 import React,{useEffect,useState} from 'react';
 import { Button, Typography, Grid,Box,Paper,TextField,Alert,AlertTitle } from '@mui/material';

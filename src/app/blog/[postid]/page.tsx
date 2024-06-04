@@ -14,9 +14,11 @@ interface Params {
 
     // Fetch the list of blog post IDs or generate them dynamically
     const postIds = await fetchBlogData();
+    console.log(postIds)
                 {/* @ts-ignore */}
-    return postIds.map((postId) => ({
-      postid: postId.id,
+    return postIds.records.map((postId) => ({
+      postid: postId.id
+   
     }));
   }
   

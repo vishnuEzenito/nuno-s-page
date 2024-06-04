@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from "@nextui-org/react";
 import React , { useRef,useEffect } from "react";
 import { HomeData } from "@/lib/constants";
