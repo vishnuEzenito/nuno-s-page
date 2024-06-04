@@ -1,7 +1,4 @@
-// components/HeroCarousel.js
-
-import React,{useEffect,useState} from 'react';
-import Carousel from 'react-material-ui-carousel';
+import React,{useEffect, useState} from 'react';
 import { Button, Typography, Grid,Box,ButtonBase,Paper } from '@mui/material';
 import { Toolbar } from '@mui/material';
 import Link from "next/link";
