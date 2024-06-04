@@ -1,7 +1,8 @@
 import { Button } from "@nextui-org/react";
-import React , { useRef,useEffect } from "react";
+import React , { useRef,useEffect,useState } from "react";
 import { HomeData } from "@/lib/constants";
 import useProductList from '@/lib/hooks'
+import Loading from './loading';
 
 import { Typography,useMediaQuery, useTheme, Box,Paper,IconButton,Tooltip} from '@mui/material';
 import FeatherIcon from 'feather-icons-react';
@@ -21,6 +22,8 @@ export default function Books() {
   const isLargeScreen = useMediaQuery(theme.breakpoints.between('lg', 'xl'));
   const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up('xl'));
   const scrollContainerRef = useRef(null);
+  const [loading, setLoading] = useState(true)
+  const [bookData, setBookData] = useState(HomeData.books.records)
   const { fetchBookData } = useProductList();
 
 
@@ -32,11 +35,14 @@ export default function Books() {
   
   useEffect(() => {
     const fetchData = async () => {
-      if (HomeData.books.records.length === 0) {
-        await fetchBookData();
-      } else if (HomeData.books.records.length !== 0) {
-        console.log("homie",HomeData.books.records)
-      }      
+      if (bookData === null) {
+        const data = await fetchBookData();
+        console.log(data);
+        setLoading(false);
+      }else if(bookData !== null) {
+        setLoading(false);
+
+      }    
       console.log(HomeData.books.records)
 
     };
@@ -57,8 +63,15 @@ export default function Books() {
           </Typography>
 
   <div style={{overflowX: 'auto', overflowY:'hidden', flexWrap: 'nowrap', padding: '1rem', paddingLeft: isSmallScreen?'1.5rem':'4rem', display: 'flex', alignItems: 'center', scrollbarWidth: 'none', msOverflowStyle: 'none',marginTop:'2rem' }} ref={scrollContainerRef}>
-    {HomeData.books.records.map((item, index) => (
- <Box key={index} sx={{ display: 'inline-block', marginLeft: '2rem', marginBottom: '0.5rem' }}> {/* Added marginBottom */}
+      {/* @ts-ignore */}
+      {loading ? (
+            Array.from({ length: 5 }).map((_, index) => (
+              <Loading key={index} />
+            ))
+          ) : (<>
+    {/* @ts-ignore */}
+    {HomeData.books.records?.sort((a, b) => a.fields.id - b.fields.id).map((item, index) => (
+ <Box key={index} sx={{ display: 'inline-block', marginLeft: '2rem', marginBottom: '0.5rem' }}> 
 
       <Paper
       key={index}
@@ -82,10 +95,13 @@ export default function Books() {
     width: '90%',
     height: '75%',
     objectFit: 'fill',
-    borderRadius : '12px'
+    borderRadius : '12px',
+    border:"#"
   }}
 
 />
+
+
       <Box sx={{ p: '1rem', height: '100%', display: 'flex', flexDirection: 'column' }}>
         {/* @ts-ignore */}
          <Box sx={{display:'flex',flexDirection:'row',width:'100%',pt:'0.75rem'}}>          
@@ -115,6 +131,8 @@ export default function Books() {
             </Box>
             </Box>            
             <Box sx={{display:'flex',flexDirection:'row',width:'100%',pt:'0.75rem'}}>
+            <Tooltip title={item.fields.Authorname} arrow>
+
     <Typography 
           variant="body2" 
           component="div" 
@@ -124,12 +142,15 @@ export default function Books() {
             fontWeight: "light",
             fontSize: '16px',
             pl:'4px',
-            whiteSpace: 'pre-wrap' // or 'normal' depending on your preference
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
           }}
         >
         {/* @ts-ignore */}
          {item.fields.Authorname}
         </Typography>          
+        </Tooltip>
 </Box>
 
   
@@ -137,7 +158,8 @@ export default function Books() {
           </Link>
     </Paper>
       </Box>
-    ))}
+    ))}</>)}
+
   </div>
   <Box sx={{ display: 'flex', flexDirection:'row' , justifyContent: 'center', alignItems: 'center', p:'0px',mt:'1rem',mb:'2.5rem'}}>
   <IconButton

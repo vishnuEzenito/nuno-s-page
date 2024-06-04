@@ -77,9 +77,7 @@ const HomeData = {
         ]
     },
     AssessmentData: {
-        list: [
-            
-        ]
+        list: null
     },
     blogs: {
         list: [
@@ -170,7 +168,7 @@ const HomeData = {
         ]
     },
     blogapi: {
-        records:[ ] 
+        records:null
         
     },
     cta: {
@@ -248,10 +246,9 @@ const HomeData = {
         ]
     },
     books : {
-        records: [
-            
-        ],    
-    }
+        records: null,    
+    },
+   
 }
 
 export {

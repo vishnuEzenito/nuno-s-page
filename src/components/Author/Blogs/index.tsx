@@ -63,7 +63,7 @@ export default function Blogs() {
           width: isSmallScreen ? '100%' : '100%',
         }}
       >
-        <Link href={'https://www.figma.com/community/file/1377537588308456202'} key={index}>
+        <Link href={''} key={index}>
           
           <img src={item.imgUrl} alt={item.text}
             style={{

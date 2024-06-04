@@ -103,6 +103,7 @@ export const tools: Array<Tool> = [
 			},
 		],
 	},
+	
 	{
 		id: "connect",
 		title: "Connect through a solid bridge",
@@ -440,4 +441,5 @@ export const tools: Array<Tool> = [
 			},
 		],
 	},
+	
 ];

@@ -2,6 +2,7 @@ import { Button } from "@nextui-org/react";
 import React , { useRef,useState,useEffect } from "react";
 import { HomeData } from "@/lib/constants";
 import useProductList from '@/lib/hooks'
+import Loading from './loading';
 
 import { Typography,useMediaQuery, useTheme, Box,Paper,IconButton,Tooltip} from '@mui/material';
 import FeatherIcon from 'feather-icons-react';
@@ -24,18 +25,25 @@ export default function Assessments() {
   const isLargeScreen = useMediaQuery(theme.breakpoints.between('lg', 'xl'));
   const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up('xl'));
   const scrollContainerRef = useRef(null);
+  const [loading, setLoading] = useState(true)
+  const [assessmentData, setAssessmentData] = useState(HomeData.AssessmentData.list)
+
   const { fetchAssessmentData } = useProductList();
   
 
   useEffect(() => {
     const fetchData = async () => {
-      if ((HomeData.AssessmentData.list).length === 0) {
-        await fetchAssessmentData();
-      } else if ((HomeData.AssessmentData.list).length !== 0) {
-        console.log("Assess homie",HomeData.AssessmentData.list)
-      }      
-      console.log(HomeData.AssessmentData.list)
+      console.log('here',assessmentData)
+      if (assessmentData === null) {
+        const data = await fetchAssessmentData();
+        console.log(data);
+        setLoading(false);
 
+      }else if(assessmentData !== null) {
+        setLoading(false);
+
+      }        
+      console.log(HomeData.AssessmentData.list)
     };
 
     fetchData();
@@ -77,9 +85,15 @@ export default function Assessments() {
              <Typography variant="subtitle2" sx={{textAlign:'center', whiteSpace: isMediumScreen?'balance':'break-spaces',fontFamily: 'classicsans', fontWeight: 'light', color: '#333333', fontSize: isSmallScreen ? '14px' : '20px' }}>
              Take our quizzes, assessments and get individual insights to help you develop as a negotiator        
           </Typography>
-          {HomeData.AssessmentData.list.length !== 0 && (
-  <div style={{overflowX: 'auto', overflowY:'hidden', flexWrap: 'nowrap', padding: '1rem', paddingLeft: isSmallScreen?'1.5rem':'4rem', display: 'flex', alignItems: 'center', scrollbarWidth: 'none', msOverflowStyle: 'none',marginTop:'2rem' }} ref={scrollContainerRef}>
-    {HomeData.AssessmentData.list.map((item, index) => (
+         {/* @ts-ignore */}
+         <div style={{overflowX: 'auto', overflowY:'hidden', flexWrap: 'nowrap', padding: '1rem', paddingLeft: isSmallScreen?'1.5rem':'4rem', display: 'flex', alignItems: 'center', scrollbarWidth: 'none', msOverflowStyle: 'none',marginTop:'2rem' }} ref={scrollContainerRef}>
+         {loading ? (
+            Array.from({ length: 5 }).map((_, index) => (
+              <Loading key={index} />
+            ))
+          ) : (<>
+     {/* @ts-ignore */}
+    {HomeData.AssessmentData.list?.map((item, index) => (
  <Box key={index} sx={{ display: 'inline-block', marginLeft: '2rem', marginBottom: '0.5rem' }}> {/* Added marginBottom */}
    {/* @ts-ignore */}
       <Paper    onClick={() => { if (item.fields.tag === 'Paid') { handleClick();} else if (item.fields.tag === 'Free') { window.location.href = item.fields.formlink;}}} disabled={item.fields.tag === 'Paid' && !stripe}
@@ -181,9 +195,9 @@ export default function Assessments() {
             </Box>
     </Paper>
       </Box>
-    ))}
+    ))}</>)}
   </div>
-  )}
+
   <Box sx={{ display: 'flex', flexDirection:'row' , justifyContent: 'center', alignItems: 'center', p:'0px',mt:'1rem',mb:'2.5rem'}}>
   <IconButton
           onClick={() => scroll(-700)}

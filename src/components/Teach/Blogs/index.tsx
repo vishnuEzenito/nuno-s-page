@@ -37,6 +37,7 @@ export default function Blogs() {
     fetchData();
   }, []);
 
+
   console.log(HomeData.blogapi.records)
   
 
@@ -63,7 +64,7 @@ export default function Blogs() {
           width: isSmallScreen ? '100%' : '100%',
         }}
       >
-        <Link href={''} key={index}>
+        <Link href={'/blog/recr6yzockQ1stYmP'} key={index}>
           
           <img src={item.imgUrl} alt={item.text}
             style={{
