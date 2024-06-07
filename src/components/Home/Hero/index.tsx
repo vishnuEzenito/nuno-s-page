@@ -305,6 +305,32 @@ const Hero = () => {
 							negotiation processes, tools, and skills can help us
 							get what we truly value.
 						</Typography>
+						<Typography
+							variant="subtitle2"
+							sx={{
+								whiteSpace: isMediumScreen
+									? "balance"
+									: "break-spaces",
+								pr: isSmallScreen
+									? "0rem"
+									: isMediumScreen
+									? "10%"
+									: isLargeScreen
+									? "10%"
+									: isExtraLargeScreen
+									? "10%"
+									: "10%",
+								textAlign: isSmallScreen ? "center" : "left",
+								fontFamily: "classicsans",
+								fontWeight: "light",
+								color: "#1c1c1c",
+								fontSize: isSmallScreen ? "14px" : "20px",
+								mt: "0.5rem",
+							}}
+						>
+							The most ambitious changemakers use negotiations to create the world we envision. In Impact Negotiations we take into account the broader effects of our decisions and deals on others and the planet. We decide the scope of our negotiations considering what truly matters to us, our families, our organizations, our communities, and the world.
+
+						</Typography>
 						<Box
 							sx={{
 								display: "flex",

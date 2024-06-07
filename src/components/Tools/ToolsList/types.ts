@@ -1,4 +1,4 @@
-export type ToolId = "negotiate" | "connect" | "create" | "choose";
+export type ToolId = string;
 
 export type ToolItem = {
 	category: string;
@@ -6,9 +6,11 @@ export type ToolItem = {
 	text: string;
 	slug: string;
 	useCase: string;
+	id:string
 };
 
 export type Tool = {
+	index: number;
 	id: ToolId;
 	label: string;
 	icon: string;

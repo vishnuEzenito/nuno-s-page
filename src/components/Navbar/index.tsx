@@ -103,7 +103,7 @@ export default function StoreNavBar({ activeComponent }: NavBarProps) {
               aria-label="menu"
               onClick={() => setIsMenuOpen(true)}
             >
-              <MenuRoundedIcon sx={{height: '40px', width: '40px', color: 'rgb(246, 246, 246,0.65)'}}/>
+              <MenuRoundedIcon sx={{height: '40px', width: '40px', color: '#888888'}}/>
             </IconButton>
           )}
           <Drawer
@@ -128,7 +128,6 @@ export default function StoreNavBar({ activeComponent }: NavBarProps) {
               </Typography>
               {menuItems.map((item) => (
                 <ListItem button key={item.id}>
-                  <ListItemIcon sx={{height: '24px', width: '24px'}}>{item.icon}</ListItemIcon>
                   <Link href={item.url}>
                     <ListItemText primary={item.title} sx={{
                       '& .css-10hburv-MuiTypography-root': {
@@ -136,7 +135,7 @@ export default function StoreNavBar({ activeComponent }: NavBarProps) {
                         fontWeight: 400,
                         fontSize: "20px",
                         color: activeComponent === item.url ? '#000' : '#333', // Change color for active page
-                        borderBottom: activeComponent === item.url ? '2px solid #000' : 'none', // Add line under active page
+                        borderBottom: activeComponent === item.url ? '2px solid #B34038' : 'none', // Add line under active page
                       }
                     }}/>
                   </Link>

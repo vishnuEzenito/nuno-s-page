@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from "@nextui-org/react";
-import React , { useRef,useEffect } from "react";
+import React , { useRef,useEffect,useState } from "react";
 import { HomeData } from "@/lib/constants";
 import { Typography,useMediaQuery, useTheme, Box,Paper,IconButton,Tooltip} from '@mui/material';
 import FeatherIcon from 'feather-icons-react';
@@ -11,6 +11,8 @@ import {ArrowUpRight,Star} from 'react-feather';
 import Link from "next/link";
 import '../../../fonts/fonts.css'
 import useProductList from '@/lib/hooks'
+import Loading from './loading';
+
 
 
 
@@ -23,6 +25,9 @@ export default function Blogs() {
   const isLargeScreen = useMediaQuery(theme.breakpoints.between('lg', 'xl'));
   const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up('xl'));
   const scrollContainerRef = useRef(null);
+  const [loading, setLoading] = useState(true)
+  const [blogData, setBlogData] = useState(HomeData.blogapi.records)
+
 
   const scroll = (scrollOffset: number) => {
     if (scrollContainerRef.current) {
@@ -33,18 +38,34 @@ export default function Blogs() {
 
   useEffect(() => {
     const fetchData = async () => {
-	  await fetchBlogData();
+      if (blogData === null) {
+        const data =  await fetchBlogData();
+        console.log(data);
+        setLoading(false);
+      }else if(blogData !== null) {
+        setLoading(false);
+
+      }    
+      console.log(HomeData.blogapi.records)
+
     };
-    
+
     fetchData();
   }, []);
 
-
   console.log(HomeData.blogapi.records)
+      {/* @ts-ignore */}
+  const formatDate = (dateStr) => {
+    const dateObj = new Date(dateStr);
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        {/* @ts-ignore */}
+
+    return dateObj.toLocaleDateString('en-GB', options);
+  };
   
 
   return (<>
-
+    
     <link href="https://cdn.jsdelivr.net/npm/@vetixy/circular-std@1.0.0/dist/index.min.css" rel="stylesheet"></link>
     <Box sx={{ background: '#FCFCFC',justifyContent: 'center', alignItems: 'center', alignContent: 'center', width:'100%',maxWidth:'1400px' }}>
   <Typography variant="h1" sx={{ whiteSpace: 'break-spaces', textAlign: 'center', fontFamily: 'classicsans', fontWeight: 'bold', color: '#333333', fontSize: isSmallScreen ? '28px' : '45px', px: isSmallScreen ? '1.25rem' : (isMediumScreen ? '4.5rem' : (isLargeScreen ? '4.5rem' : (isExtraLargeScreen ? '5.5rem' : '4.5rem'))), mt: isSmallScreen ? '2rem' : (isMediumScreen ? '3rem' : (isLargeScreen ? '3rem' : (isExtraLargeScreen ? '3rem' : '3rem'))), mb: '0.5rem' }}>
@@ -55,7 +76,11 @@ export default function Blogs() {
   </Typography>
 
   <Box sx={{ display: 'grid', gridTemplateColumns: isSmallScreen ? 'repeat(auto-fill, minmax(350px,1fr))' : (isMediumScreen ? 'repeat(auto-fill, minmax(250px,1fr))' : (isLargeScreen ? 'repeat(auto-fill, minmax(350px,1fr))' : (isExtraLargeScreen ? 'repeat(auto-fill, minmax(350px,1fr))' : 'repeat(auto-fill, minmax(350px,1fr))'))), gap: isSmallScreen ? '1rem' : '1.5rem', justifyContent: 'center', alignItems: 'center', alignContent: 'center', py: '2rem',px:'2rem', flexWrap: 'wrap',mt:'1rem' }}>
-  {HomeData.blogs.list.map((item, index) => (
+  {loading?(<>
+  <h1>Loading...</h1>
+  </>):(<>
+      {/* @ts-ignore */}
+    {HomeData.blogapi.records.filter(item => item.fields.Category !== "Nuno's post").map((item, index) =>(
     <Box key={index} style={{ marginBottom: '2rem' }}>
       <Paper
         key={index}
@@ -66,9 +91,9 @@ export default function Blogs() {
           width: isSmallScreen ? '100%' : '100%',
         }}
       >
-        <Link href={'/blog/recr6yzockQ1stYmP'} key={index}>
+        <Link href={`/blog/${item.id}`} key={index}>
           
-          <img src={item.imgUrl} alt={item.text}
+          <img src={item.fields.thumbnail[0].url} alt={item.fields.title}
             style={{
               width: '100%',
               height: '60%',
@@ -88,11 +113,11 @@ export default function Blogs() {
                 fontSize: isSmallScreen ? '10px' : '14px',            
               }}
             >
-              {item.tag}
+              {item.fields.Category}
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'row', width: '100%', pt: '0.75rem' }}>
             <Box sx={{ textAlign: "left", width: '100%', whiteSpace: 'break-spaces', p: '0' }}>
-  {(item.text).length <= 60 ? (
+  {(item.fields.Title).length <= 60 ? (
     <Typography
       variant="body2"
       sx={{
@@ -105,7 +130,7 @@ export default function Blogs() {
         overflow: 'visible',
       }}
     >
-      {item.text}
+      {item.fields.Title}
     </Typography>
   ) : (
     <>
@@ -158,7 +183,7 @@ export default function Blogs() {
                   whiteSpace: 'pre-wrap' // or 'normal' depending on your preference
                 }}
               >
-                02 June, 2024
+                {item.fields.AuthorName}, {formatDate(item.fields.Date)}
               </Typography>
             </Box>
           </Box>
@@ -166,6 +191,8 @@ export default function Blogs() {
       </Paper>
     </Box>
   ))}
+  </>)}
+  
 </Box>
 
 </Box>

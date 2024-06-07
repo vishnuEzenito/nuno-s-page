@@ -1,6 +1,8 @@
 import { Button } from "@nextui-org/react";
-import React , { useRef } from "react";
+import React , { useRef, useState, useEffect} from "react";
 import { HomeData } from "@/lib/constants";
+import useProductList from '@/lib/hooks'
+
 import { Typography,useMediaQuery, useTheme, Box,Paper,IconButton,Tooltip} from '@mui/material';
 import FeatherIcon from 'feather-icons-react';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
@@ -8,6 +10,8 @@ import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRound
 import {ArrowUpRight,Star} from 'react-feather';
 import Link from "next/link";
 import '../../../fonts/fonts.css'
+import Loading from './loading';
+
 
 
 
@@ -19,6 +23,10 @@ export default function Canvas() {
   const isLargeScreen = useMediaQuery(theme.breakpoints.between('lg', 'xl'));
   const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up('xl'));
   const scrollContainerRef = useRef(null);
+  const [loading, setLoading] = useState(true)
+  const [canvasData, setCanvasData] = useState(HomeData.canvas.list)
+  const { fetchCanvasData } = useProductList();
+
 
   const scroll = (scrollOffset: number) => {
     if (scrollContainerRef.current) {
@@ -26,9 +34,26 @@ export default function Canvas() {
     }
   };
   
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      if (canvasData === null) {
+        const data = await fetchCanvasData();
+        console.log(data);
+        setCanvasData(data.records)
+        setLoading(false);
+      }else if(canvasData !== null) {
+        setLoading(false);
 
+      }    
+      console.log(HomeData.canvas.list)
+
+    };
+
+    fetchData();
+  }, []);
+  
   return (<>
-
     <link href="https://cdn.jsdelivr.net/npm/@vetixy/circular-std@1.0.0/dist/index.min.css" rel="stylesheet"></link>
    <Box sx={{background:'#FCFCFC'}}>
    <Typography variant="h1" sx={{ whiteSpace:'break-spaces',textAlign: 'center',fontFamily: 'classicsans', fontWeight: "bold", color: '#333333', fontSize: isSmallScreen ? '28px' : '45px', px: isSmallScreen ? '1.25rem' : (isMediumScreen ? '4.5rem' : (isLargeScreen ? '4.5rem' : (isExtraLargeScreen ? '5.5rem' : '4.5rem'))), mt: isSmallScreen ? '2rem' : (isMediumScreen ? '3rem' : (isLargeScreen ? '3rem' : (isExtraLargeScreen ? '3rem' : '3rem'))), mb:'0.5rem' }}>
@@ -39,6 +64,12 @@ export default function Canvas() {
           </Typography>
 
   <div style={{overflowX: 'auto', overflowY:'hidden', flexWrap: 'nowrap', padding: '1rem', paddingLeft: isSmallScreen?'1.5rem':'4rem', display: 'flex', alignItems: 'center', scrollbarWidth: 'none', msOverflowStyle: 'none',marginTop:'2rem' }} ref={scrollContainerRef}>
+  {loading ? (
+            Array.from({ length: 5 }).map((_, index) => (
+              <Loading key={index} />
+            ))
+          ) : (<>
+         {/* @ts-ignore */}
     {HomeData.canvas.list.map((item, index) => (
  <Box key={index} sx={{ display: 'inline-block', marginLeft: '2rem', marginBottom: '0.5rem' }}> {/* Added marginBottom */}
 
@@ -52,7 +83,7 @@ export default function Canvas() {
       }}
     >
       {/* @ts-ignore */}
-   <Link href={'https://www.figma.com/community/file/1377537588308456202'} key={index}>
+   <Link href={item.fields.url} key={index}>
     {/* @ts-ignore */}
     <Paper
       elevation={0}
@@ -79,13 +110,13 @@ export default function Canvas() {
                 }}
               >
                 {/* @ts-ignore */}
-               {item.tag}
+               {item.fields.tag}
               </Typography>
     </Paper>
 
     
  {/* @ts-ignore */}
-<img src={item.imgUrl} alt={item.text}
+<img src={item.fields.image[0].url} alt={item.fields.name}
   style={{
     width: '100%',
     height: '60%',
@@ -99,9 +130,10 @@ export default function Canvas() {
   
          <Box sx={{display:'flex',flexDirection:'row',width:'100%',pt:'0.75rem'}}>          
             <Box sx={{ textAlign:"left", width: '90%',whiteSpace:'break-spaces',p:'0'}}>
-            <Tooltip title={item.text} arrow>
+            <Tooltip title={item.fields.name} arrow>
             <Typography
               variant="body2"
+
               sx={{
                 color: '#333333',
                 fontFamily: 'classicsans',
@@ -112,9 +144,10 @@ export default function Canvas() {
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
               }}
+
             >
               {/* @ts-ignore */}
-              {item.text}
+              {item.fields.name}
             </Typography>
             </Tooltip>
             </Box>
@@ -135,7 +168,7 @@ export default function Canvas() {
             whiteSpace: 'pre-wrap' // or 'normal' depending on your preference
           }}
         >
-         {item.description}
+         {item.fields.description}
         </Typography>          
 </Box>
 
@@ -144,7 +177,7 @@ export default function Canvas() {
           </Link>
     </Paper>
       </Box>
-    ))}
+    ))}</>)}
   </div>
   <Box sx={{ display: 'flex', flexDirection:'row' , justifyContent: 'center', alignItems: 'center', p:'0px',mt:'1rem',mb:'2.5rem'}}>
   <IconButton

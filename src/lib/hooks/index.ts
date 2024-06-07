@@ -1,7 +1,10 @@
 // useProductList.js
 import axios from 'axios';
 import { useState } from "react";
-import { HomeData } from "@/lib/constants"; 
+import { HomeData } from "@/lib/constants";
+import { Tool} from "../../components/Tools/ToolsList/types";
+
+
 
 const useProductList = () => {
 
@@ -56,8 +59,95 @@ const useProductList = () => {
       return null;
     }
   };
+  
 
-  return {fetchBookData,fetchAssessmentData,fetchBlogData};
+
+  const fetchCanvasData = async () => {
+    try {
+      const response = await axios.get('https://api.airtable.com/v0/appkag7HFvxhwiXEZ/tblo4io5mWE9l6evk', {
+        headers: {
+          'Authorization': 'Bearer pat9cAthirGMPjk5c.6cebe3aa68a3f577cb950574f95b5938742ac40b9191fe2cf8b2d96a5e841b92'
+        }
+      });
+
+      // Update HomeData with the fetched data
+      HomeData.canvas.list = response.data.records; 
+
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      return null;
+    }
+  };
+  
+
+  const fetchtoolsData = async () => {
+    try {
+      // First API call to fetch categories
+      const response = await axios.get('https://api.airtable.com/v0/appkag7HFvxhwiXEZ/tblluDuVZJz1CaRdH', {
+        headers: {
+          'Authorization': 'Bearer pat9cAthirGMPjk5c.6cebe3aa68a3f577cb950574f95b5938742ac40b9191fe2cf8b2d96a5e841b92'
+        }
+      });
+
+      const toolslist = await axios.get('https://api.airtable.com/v0/appkag7HFvxhwiXEZ/tblG7NksTQd4ni6lR', {
+        headers: {
+          'Authorization': 'Bearer pat9cAthirGMPjk5c.6cebe3aa68a3f577cb950574f95b5938742ac40b9191fe2cf8b2d96a5e841b92'
+        }
+      });
+  
+      const tools: Array<Tool> = [];
+      if (response) {
+             {/* @ts-ignore */}
+        response.data.records.forEach((item, index: number) => {
+          tools.push({
+            index: item.fields.index,
+            id: item.fields.Sectionid,
+            title: item.fields.title,
+            label: item.fields.label,
+            icon: item.fields.icon,
+            theme: {
+              background: item.fields.background,
+            },
+            items: []
+          });
+        });
+      }
+      console.log(tools,'12345546')
+      // Second API call to fetch items
+      const sortedData = tools.sort((a, b) => a.index - b.index);
+
+  
+      if (toolslist && response) {
+        console.log(toolslist,'123')
+            {/* @ts-ignore */}
+        toolslist.data.records.forEach((item, index: number) => {
+          // Find the corresponding category by id and add the item
+          const category = sortedData.find(tool => tool.id === item.fields.Sectionid[0]);
+
+          if (category) {
+            category.items.push({
+              text: item.fields.Toolname,
+              category: item.fields.category,
+              useCase: item.fields.useCase,
+              slug: item.fields.uuid,
+              icon: item.fields.icon[0].url,
+              id:item.fields.Sectionid[0],
+            });
+          }
+        })
+        return sortedData;
+      }
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      return null;
+    }
+  };
+  
+  
+
+  return {fetchBookData,fetchAssessmentData,fetchBlogData,fetchtoolsData,fetchCanvasData};
 };
 
 export default useProductList;

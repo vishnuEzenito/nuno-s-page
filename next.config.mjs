@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output:'export',
+    images: {
+        domains: ['v5.airtableusercontent.com'],
+      },
 };
 
 export default nextConfig;

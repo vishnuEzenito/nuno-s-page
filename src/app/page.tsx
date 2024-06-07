@@ -7,16 +7,18 @@ import { Box } from "@mui/material";
 import useProductList from '@/lib/hooks'
 
 
+
 export default function Home() {
-	const { fetchBookData,fetchAssessmentData,fetchBlogData } = useProductList();
+	const { fetchBookData,fetchAssessmentData,fetchBlogData,fetchtoolsData,fetchCanvasData} = useProductList();
 
   useEffect(() => {
     const fetchData = async () => {
       await fetchBookData();
 	  await fetchAssessmentData();
 	  await fetchBlogData();
+	  await fetchtoolsData();
+	  await fetchCanvasData();
     };
-    
     fetchData();
   }, []);
 	

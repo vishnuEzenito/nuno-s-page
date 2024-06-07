@@ -33,95 +33,10 @@ const HomeData = {
 ],
 
     canvas: {
-        list: [
-            {
-                id: 1,
-                imgUrl: "/assets/canvas1.png",
-                url: "",
-                tag:'Free',
-                text: "Job Negotiation",
-                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
-            },
-            {
-                id: 2,
-                imgUrl: "/assets/canvas1.png",
-                url: "",
-                tag:'Free',
-                text: "Startup Funding",
-                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
-            },
-            {
-                id: 3,
-                imgUrl: "/assets/canvas1.png",
-                url: "",
-                tag:'Free',
-                text: "Labor Dispute",
-                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
-            },
-            {
-                id: 4,
-                imgUrl: "/assets/canvas1.png",
-                url: "",
-                tag:'Free',
-                text: "Negotiate Canvas",
-                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
-            },
-            {
-                id: 5,
-                imgUrl: "/assets/canvas1.png",
-                url: "",
-                tag:'Free',
-                text: "Negotiate Canvas",
-                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
-            },
-        ]
+        list: null
     },
     AssessmentData: {
         list: null
-    },
-    blogs: {
-        list: [
-            {
-                id: 1,
-                imgUrl: "/assets/Cheatsheet.png",
-                url: "",
-                tag:'Techniques',
-                text: "Top 5 and od aosd techniques to learn job negotiations with case studies",
-                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
-            },
-            {
-                id: 2,
-                imgUrl: "/assets/canvas1.png",
-                url: "",
-                tag:'Case Study',
-                text: "Top 5 techniques to learn job negotiations with case studies",
-                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
-            },
-            {
-                id: 3,
-                imgUrl: "/assets/image 22.png",
-                url: "",
-                tag:'Techniques',
-                text: "Top 5 techniques to learn job negotiations with case studies",
-                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
-            },
-            {
-                id: 4,
-                imgUrl: "/assets/canvas1.png",
-                url: "",
-                tag:'Role Play',
-                text: "Top 5 techniques to learn job negotiations with case studies",
-                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
-            },
-            {
-                id: 5,
-                imgUrl: "/assets/canvas1.png",
-                url: "",
-                tag:'Role Play',
-                text: "Top 5 techniques to learn job negotiations with case studies",
-                description:"for maximum impact: Adopt empowering mindsets Prepare with the Negotiation Canvas Apply, impact, and learn",
-            },
-        ]
     },
     personalblogs: {
         list: [
