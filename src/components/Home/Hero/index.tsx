@@ -6,8 +6,7 @@ import Link from "next/link";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import "../../../fonts/fonts.css";
-
-
+import Image from "next/image";
 
 const Hero = () => {
 	const theme = useTheme();
@@ -16,8 +15,6 @@ const Hero = () => {
 	const isLargeScreen = useMediaQuery(theme.breakpoints.between("lg", "xl"));
 	const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
 	const [loading, setLoading] = useState(true);
-
-
 
 	return (
 		<>
@@ -116,7 +113,8 @@ const Hero = () => {
 								gap: "2rem",
 							}}
 						>
-							<ButtonBase href="#cta"
+							<ButtonBase
+								href="#cta"
 								sx={{
 									mt: "2rem",
 									borderRadius: "12px",
@@ -160,50 +158,50 @@ const Hero = () => {
 									</Typography>
 								</Paper>
 							</ButtonBase>
-							<ButtonBase 
+							<ButtonBase
 								sx={{
 									mt: "2rem",
 									borderRadius: "12px",
 									width: "auto",
 								}}
 							>
-								<Link href="#knowmore" >
-								<Paper
-									sx={{
-										borderRadius: "12px",
-										background: "#EEEEEE",
-										width: "auto",
-										px: "2.5rem",
-										py: "0.3rem",
-										maxWidth: isSmallScreen
-											? "auto"
-											: isMediumScreen
-											? "200px"
-											: isLargeScreen
-											? "200px"
-											: isExtraLargeScreen
-											? "200px"
-											: "200px",
-									}}
-								>
-									<Typography
-										variant="body2"
+								<Link href="#knowmore">
+									<Paper
 										sx={{
-											whiteSpace: "break-spaces",
-											textAlign: "center",
-											fontFamily:
-												"CircularStd, sans-serif",
-											fontWeight: 100,
-											color: "#333333",
-											fontSize: isSmallScreen
-												? "14px"
-												: "20px",
-											py: "0.5rem",
+											borderRadius: "12px",
+											background: "#EEEEEE",
+											width: "auto",
+											px: "2.5rem",
+											py: "0.3rem",
+											maxWidth: isSmallScreen
+												? "auto"
+												: isMediumScreen
+												? "200px"
+												: isLargeScreen
+												? "200px"
+												: isExtraLargeScreen
+												? "200px"
+												: "200px",
 										}}
 									>
-										Know More
-									</Typography>
-								</Paper>
+										<Typography
+											variant="body2"
+											sx={{
+												whiteSpace: "break-spaces",
+												textAlign: "center",
+												fontFamily:
+													"CircularStd, sans-serif",
+												fontWeight: 100,
+												color: "#333333",
+												fontSize: isSmallScreen
+													? "14px"
+													: "20px",
+												py: "0.5rem",
+											}}
+										>
+											Know More
+										</Typography>
+									</Paper>
 								</Link>
 							</ButtonBase>
 						</Box>
@@ -232,9 +230,11 @@ const Hero = () => {
 					}}
 				>
 					<Grid item key={"image2"} xs={12} md={4} lg={4}>
-						<img
+						<Image
 							src={"/assets/HomeSection2.svg"}
 							alt="bgimage"
+							width={1920}
+							height={1080}
 							style={{
 								width: "100%",
 								height: "100%",
@@ -328,8 +328,13 @@ const Hero = () => {
 								mt: "0.5rem",
 							}}
 						>
-							The most ambitious changemakers use negotiations to create the world we envision. In Impact Negotiations we take into account the broader effects of our decisions and deals on others and the planet. We decide the scope of our negotiations considering what truly matters to us, our families, our organizations, our communities, and the world.
-
+							The most ambitious changemakers use negotiations to
+							create the world we envision. In Impact Negotiations
+							we take into account the broader effects of our
+							decisions and deals on others and the planet. We
+							decide the scope of our negotiations considering
+							what truly matters to us, our families, our
+							organizations, our communities, and the world.
 						</Typography>
 						<Box
 							sx={{
@@ -345,43 +350,43 @@ const Hero = () => {
 									width: "auto",
 								}}
 							>
-								<Link href='/learn' >
-								<Paper
-									sx={{
-										borderRadius: "12px",
-										background: "#B34038",
-										width: "auto",
-										px: "2rem",
-										py: "0.3rem",
-										maxWidth: isSmallScreen
-											? "auto"
-											: isMediumScreen
-											? "200px"
-											: isLargeScreen
-											? "200px"
-											: isExtraLargeScreen
-											? "200px"
-											: "200px",
-									}}
-								>
-									<Typography
-										variant="body2"
+								<Link href="/learn">
+									<Paper
 										sx={{
-											whiteSpace: "break-spaces",
-											textAlign: "center",
-											fontFamily:
-												"CircularStd, sans-serif",
-											fontWeight: 100,
-											color: "#fff",
-											fontSize: isSmallScreen
-												? "14px"
-												: "20px",
-											py: "0.5rem",
+											borderRadius: "12px",
+											background: "#B34038",
+											width: "auto",
+											px: "2rem",
+											py: "0.3rem",
+											maxWidth: isSmallScreen
+												? "auto"
+												: isMediumScreen
+												? "200px"
+												: isLargeScreen
+												? "200px"
+												: isExtraLargeScreen
+												? "200px"
+												: "200px",
 										}}
 									>
-										Know More
-									</Typography>
-								</Paper>
+										<Typography
+											variant="body2"
+											sx={{
+												whiteSpace: "break-spaces",
+												textAlign: "center",
+												fontFamily:
+													"CircularStd, sans-serif",
+												fontWeight: 100,
+												color: "#fff",
+												fontSize: isSmallScreen
+													? "14px"
+													: "20px",
+												py: "0.5rem",
+											}}
+										>
+											Know More
+										</Typography>
+									</Paper>
 								</Link>
 							</ButtonBase>
 						</Box>

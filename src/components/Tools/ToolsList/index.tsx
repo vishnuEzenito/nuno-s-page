@@ -99,7 +99,7 @@ export default function List() {
                 rel="stylesheet"
             />
             <div className={classes("-header")}>
-                <h1>Find the right</h1>
+                <h1>Find the right tool</h1>
                 <h3>
 				to address your goals and challenges towards successful negotiation 
                 </h3>
