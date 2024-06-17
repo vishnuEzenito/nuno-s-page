@@ -24,7 +24,7 @@ const ToolPage: React.FC = () => {
 	return (
 		<main>
 			<NavBar activeComponent="/tools/:id" />
-			<section className="w-full flex justify-start items-center flex-col gap-2 px-4 sm:px-[7%] py-8">
+			<section className="w-full flex justify-start items-start flex-col gap-2 px-4 sm:px-[7%] py-8">
 				{toolData ? (
 					<>
 						<div className="jumbotron w-full flex justify-start items-center gap-2 p-8 rounded-xl shadow-xl">
