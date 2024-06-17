@@ -15,11 +15,8 @@ import { X } from "react-feather";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
-{
-	/* @ts-ignore */
-}
-
-const FreeSampleModal = ({ open, handleClose }) => {
+// @ts-ignore
+const FreeSampleModal = ({ open, handleClose }: any) => {
 	const theme = useTheme();
 	const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -34,7 +31,7 @@ const FreeSampleModal = ({ open, handleClose }) => {
 		/* @ts-ignore */
 	}
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: any) => {
 		e.preventDefault();
 		setSubmitting(true);
 		try {

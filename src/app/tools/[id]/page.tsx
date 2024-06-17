@@ -14,7 +14,6 @@ const ToolPage: React.FC = () => {
 
 	const getData = async () => {
 		const data = await fetchToolData(toolId as string);
-		console.log(data);
 		setToolData(data);
 	};
 

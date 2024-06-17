@@ -116,10 +116,7 @@ const useProductList = () => {
 
 			const tools: Array<Tool> = [];
 			if (response) {
-				{
-					/* @ts-ignore */
-				}
-				response.data.records.forEach((item, index: number) => {
+				response.data.records.forEach((item: any, index: number) => {
 					tools.push({
 						index: item.fields.index,
 						id: item.fields.Sectionid,
@@ -139,10 +136,7 @@ const useProductList = () => {
 
 			if (toolslist && response) {
 				console.log(toolslist, "123");
-				{
-					/* @ts-ignore */
-				}
-				toolslist.data.records.forEach((item, index: number) => {
+				toolslist.data.records.forEach((item: any, index: number) => {
 					// Find the corresponding category by id and add the item
 					const category = sortedData.find(
 						(tool) => tool.id === item.fields.Sectionid[0]
@@ -178,7 +172,6 @@ const useProductList = () => {
 					},
 				}
 			);
-			console.log(response, "12345546");
 			const records = response.data.records;
 			const toolData = records.find(
 				(record: any) => record.fields.uuid === toolId

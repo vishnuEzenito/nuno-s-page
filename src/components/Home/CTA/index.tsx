@@ -31,9 +31,7 @@ const Hero = () => {
 
 	const handleClick = async () => {
 		if (!stripe) return;
-		{
-			/* @ts-ignore */
-		}
+		// @ts-ignore
 		const { error } = await stripe.redirectToCheckout({
 			lineItems: [
 				{ price: "price_1PHgS118WhMcYo2CkPYQkfYE", quantity: 1 },
@@ -47,9 +45,7 @@ const Hero = () => {
 			console.error("Error:", error);
 		}
 	};
-	{
-		/* @ts-ignore */
-	}
+	// @ts-ignore
 	stripePromise.then(setStripe);
 
 	return (

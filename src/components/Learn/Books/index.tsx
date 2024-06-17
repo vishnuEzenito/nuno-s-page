@@ -130,10 +130,12 @@ export default function Books() {
 						))
 					) : (
 						<>
-							{/* @ts-ignore */}
-							{HomeData.books.records
-								?.sort((a, b) => a.fields.id - b.fields.id)
-								.map((item, index) => (
+							{(HomeData.books.records as any)
+								?.sort(
+									(a: any, b: any) =>
+										a.fields.id - b.fields.id
+								)
+								.map((item: any, index: number) => (
 									<Box
 										key={index}
 										sx={{
