@@ -6,7 +6,7 @@ export type ToolItem = {
 	text: string;
 	slug: string;
 	useCase: string;
-	id:string
+	id: string;
 };
 
 export type Tool = {

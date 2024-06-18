@@ -50,12 +50,12 @@ const Hero = () => {
 					px: isSmallScreen
 						? "1.25rem"
 						: isMediumScreen
-						? "4.5rem"
-						: isLargeScreen
-						? "4.5rem"
-						: isExtraLargeScreen
-						? "5.5rem"
-						: "4.5rem",
+							? "4.5rem"
+							: isLargeScreen
+								? "4.5rem"
+								: isExtraLargeScreen
+									? "5.5rem"
+									: "4.5rem",
 				}}
 			>
 				<Typography
@@ -68,12 +68,12 @@ const Hero = () => {
 						fontSize: isSmallScreen
 							? "28px"
 							: isMediumScreen
-							? "45px"
-							: isLargeScreen
-							? "50px"
-							: isExtraLargeScreen
-							? "50px"
-							: "45rem",
+								? "45px"
+								: isLargeScreen
+									? "50px"
+									: isExtraLargeScreen
+										? "50px"
+										: "45rem",
 					}}
 				>
 					Get in touch with us!

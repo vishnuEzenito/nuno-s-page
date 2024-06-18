@@ -57,12 +57,12 @@ export default function Footer() {
 					px: isSmallScreen
 						? "1.25rem"
 						: isMediumScreen
-						? "4.5rem"
-						: isLargeScreen
-						? "4.5rem"
-						: isExtraLargeScreen
-						? "5.5rem"
-						: "4.5rem",
+							? "4.5rem"
+							: isLargeScreen
+								? "4.5rem"
+								: isExtraLargeScreen
+									? "5.5rem"
+									: "4.5rem",
 				}}
 			>
 				<Box>
@@ -114,10 +114,10 @@ export default function Footer() {
 									gap: isMediumScreen
 										? "1rem"
 										: isLargeScreen
-										? "2rem"
-										: isExtraLargeScreen
-										? "3rem"
-										: "2rem",
+											? "2rem"
+											: isExtraLargeScreen
+												? "3rem"
+												: "2rem",
 								}}
 							>
 								{menuItems.map((item) => (
@@ -217,7 +217,8 @@ export default function Footer() {
 									mt: "0.5rem",
 								}}
 							>
-								© 2024 Impact Negotiations | All Rights Reserved
+								© 2024 Impact Negotiations | All Rights
+								Reserved
 							</Typography>
 						</Grid>
 						<Grid

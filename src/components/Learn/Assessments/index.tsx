@@ -92,21 +92,21 @@ export default function Assessments() {
 						px: isSmallScreen
 							? "1.25rem"
 							: isMediumScreen
-							? "4.5rem"
-							: isLargeScreen
-							? "4.5rem"
-							: isExtraLargeScreen
-							? "5.5rem"
-							: "4.5rem",
+								? "4.5rem"
+								: isLargeScreen
+									? "4.5rem"
+									: isExtraLargeScreen
+										? "5.5rem"
+										: "4.5rem",
 						mt: isSmallScreen
 							? "2rem"
 							: isMediumScreen
-							? "3rem"
-							: isLargeScreen
-							? "3rem"
-							: isExtraLargeScreen
-							? "3rem"
-							: "3rem",
+								? "3rem"
+								: isLargeScreen
+									? "3rem"
+									: isExtraLargeScreen
+										? "3rem"
+										: "3rem",
 						mb: "0.5rem",
 					}}
 				>
@@ -124,12 +124,12 @@ export default function Assessments() {
 						px: isSmallScreen
 							? "1rem"
 							: isMediumScreen
-							? "4.5rem"
-							: isLargeScreen
-							? "4.5rem"
-							: isExtraLargeScreen
-							? "5.5rem"
-							: "4.5rem",
+								? "4.5rem"
+								: isLargeScreen
+									? "4.5rem"
+									: isExtraLargeScreen
+										? "5.5rem"
+										: "4.5rem",
 					}}
 				>
 					Take our quizzes, assessments and get individual insights to
@@ -205,10 +205,10 @@ export default function Assessments() {
 														"Paid"
 															? "#B34038"
 															: item.fields
-																	.tag ===
-															  "Free"
-															? "#43C4F2"
-															: "#defaultColor", // Set a default color if neither condition is met
+																		.tag ===
+																  "Free"
+																? "#43C4F2"
+																: "#defaultColor", // Set a default color if neither condition is met
 													position: "absolute",
 													borderRadius: "100px",
 													top: 0,

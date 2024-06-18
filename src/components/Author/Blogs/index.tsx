@@ -79,21 +79,21 @@ export default function Blogs() {
 						px: isSmallScreen
 							? "1.25rem"
 							: isMediumScreen
-							? "4.5rem"
-							: isLargeScreen
-							? "4.5rem"
-							: isExtraLargeScreen
-							? "5.5rem"
-							: "4.5rem",
+								? "4.5rem"
+								: isLargeScreen
+									? "4.5rem"
+									: isExtraLargeScreen
+										? "5.5rem"
+										: "4.5rem",
 						mt: isSmallScreen
 							? "2rem"
 							: isMediumScreen
-							? "3rem"
-							: isLargeScreen
-							? "3rem"
-							: isExtraLargeScreen
-							? "3rem"
-							: "3rem",
+								? "3rem"
+								: isLargeScreen
+									? "3rem"
+									: isExtraLargeScreen
+										? "3rem"
+										: "3rem",
 						mb: "0.5rem",
 					}}
 				>
@@ -119,12 +119,12 @@ export default function Blogs() {
 						gridTemplateColumns: isSmallScreen
 							? "repeat(auto-fill, minmax(350px,1fr))"
 							: isMediumScreen
-							? "repeat(auto-fill, minmax(250px,1fr))"
-							: isLargeScreen
-							? "repeat(auto-fill, minmax(350px,1fr))"
-							: isExtraLargeScreen
-							? "repeat(auto-fill, minmax(350px,1fr))"
-							: "repeat(auto-fill, minmax(350px,1fr))",
+								? "repeat(auto-fill, minmax(250px,1fr))"
+								: isLargeScreen
+									? "repeat(auto-fill, minmax(350px,1fr))"
+									: isExtraLargeScreen
+										? "repeat(auto-fill, minmax(350px,1fr))"
+										: "repeat(auto-fill, minmax(350px,1fr))",
 						gap: isSmallScreen ? "1rem" : "1.5rem",
 						justifyContent: "center",
 						alignItems: "center",
