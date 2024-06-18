@@ -1,19 +1,19 @@
-import React, { useState } from "react";
 import {
-	Modal,
-	Box,
-	Typography,
-	TextField,
-	ButtonBase,
-	Paper,
-	IconButton,
 	Alert,
 	AlertTitle,
+	Box,
+	ButtonBase,
+	IconButton,
+	Modal,
+	Paper,
+	TextField,
+	Typography,
 } from "@mui/material";
-import axios from "axios";
-import { X } from "react-feather";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import axios from "axios";
+import { useState } from "react";
+import { X } from "react-feather";
 
 // @ts-ignore
 const FreeSampleModal = ({ open, handleClose }: any) => {
@@ -26,10 +26,6 @@ const FreeSampleModal = ({ open, handleClose }: any) => {
 	const [formLoading, setFormLoading] = useState(true);
 	const [success, setSuccess] = useState(false);
 	const [error, setError] = useState("");
-
-	{
-		/* @ts-ignore */
-	}
 
 	const handleSubmit = async (e: any) => {
 		e.preventDefault();

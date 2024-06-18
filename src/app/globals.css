@@ -3,25 +3,24 @@
 @tailwind utilities;
 
 .hero-bg {
-  opacity: 0.2;
-  background: #d3e6cc;
-  filter: blur(200px);
+	opacity: 0.2;
+	background: #d3e6cc;
+	filter: blur(200px);
 }
 
 .text-primary {
-  color: #5b5b5b;
+	color: #5b5b5b;
 }
 
 .text-secondary {
-  color: #739072;
+	color: #739072;
 }
 
-.color-blob{
-  fill: rgba(211, 230, 204, 0.50);
-filter: blur(115px);
+.color-blob {
+	fill: rgba(211, 230, 204, 0.5);
+	filter: blur(115px);
 }
 
-
-.email-card-color{
-  background: none;
+.email-card-color {
+	background: none;
 }

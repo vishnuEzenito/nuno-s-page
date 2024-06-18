@@ -1,202 +1,202 @@
 .tools-list {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    gap: 24px;
-    padding: 0 5% 5% 5%;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	gap: 24px;
+	padding: 0 5% 5% 5%;
 
-    * {
-        transition: all 0.3s ease-in-out;
-    }
+	* {
+		transition: all 0.3s ease-in-out;
+	}
 
-    &-header {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
+	&-header {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		gap: 12px;
+		text-align: center;
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
+		h1 {
+			font-size: 3rem;
+			font-weight: 700;
 
-            @media screen and (max-width: 768px) {
-                font-size: 2rem;
-            }
-        }
+			@media screen and (max-width: 768px) {
+				font-size: 2rem;
+			}
+		}
 
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 500;
+		h3 {
+			font-size: 1.25rem;
+			font-weight: 500;
 
-            @media screen and (max-width: 768px) {
-                font-size: 1rem;
-            }
-        }
-    }
+			@media screen and (max-width: 768px) {
+				font-size: 1rem;
+			}
+		}
+	}
 
-    &-heading {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 16px;
-        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.15);
-        padding: 16px;
+	&-heading {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 16px;
+		box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.15);
+		padding: 16px;
 
-        h1 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            text-align: center;
+		h1 {
+			font-size: 2.25rem;
+			font-weight: 700;
+			text-align: center;
 
-            @media screen and (max-width: 768px) {
-                font-size: 1.5rem;
-            }
-        }
-    }
+			@media screen and (max-width: 768px) {
+				font-size: 1.5rem;
+			}
+		}
+	}
 
-    &-tabs {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: stretch;
-        gap: 8px;
-        padding: 8px;
-        border-radius: 16px;
-        padding: 4px;
-        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.15);
+	&-tabs {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: stretch;
+		gap: 8px;
+		padding: 8px;
+		border-radius: 16px;
+		padding: 4px;
+		box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.15);
 
-        @media screen and (max-width: 768px) {
-            flex-flow: row wrap;
-        }
-    }
+		@media screen and (max-width: 768px) {
+			flex-flow: row wrap;
+		}
+	}
 
-    &-tab {
-        all: unset;
-        box-sizing: border-box;
-        width: 25%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        flex: 0 1 auto;
-        gap: 4px;
-        padding: 8px 0;
-        margin: 0;
-        border-radius: inherit;
-        cursor: pointer;
-        user-select: none;
-        transition: all 0.3s ease-in-out;
+	&-tab {
+		all: unset;
+		box-sizing: border-box;
+		width: 25%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		flex: 0 1 auto;
+		gap: 4px;
+		padding: 8px 0;
+		margin: 0;
+		border-radius: inherit;
+		cursor: pointer;
+		user-select: none;
+		transition: all 0.3s ease-in-out;
 
-        @media screen and (max-width: 768px) {
-            width: calc(50% - 8px);
-        }
+		@media screen and (max-width: 768px) {
+			width: calc(50% - 8px);
+		}
 
-        img {
-            width: 60px;
-            height: auto;
-            object-fit: contain;
-        }
+		img {
+			width: 60px;
+			height: auto;
+			object-fit: contain;
+		}
 
-        h2 {
-            font-size: 1.25rem;
-            font-weight: 500;
-        }
-    }
+		h2 {
+			font-size: 1.25rem;
+			font-weight: 500;
+		}
+	}
 
-    &-container {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: column;
-        gap: 48px;
-        padding: 24px;
-        border-radius: 12px;
-        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.15);
-    }
+	&-container {
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
+		gap: 48px;
+		padding: 24px;
+		border-radius: 12px;
+		box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.15);
+	}
 
-    &-block {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: column;
-        gap: 20px;
+	&-block {
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
+		gap: 20px;
 
-        &-head {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 0 24px 0;
-            border-bottom: 1.5px solid #E2E1E1;
+		&-head {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 0 24px 0;
+			border-bottom: 1.5px solid #e2e1e1;
 
-            @media screen and (max-width: 768px) {
-                justify-content: center;
-                flex-direction: column-reverse;
-                gap: 12px;
-            }
-        }
+			@media screen and (max-width: 768px) {
+				justify-content: center;
+				flex-direction: column-reverse;
+				gap: 12px;
+			}
+		}
 
-        &-items {
-            width: 100%;
-            display: flex;
-            justify-content: flex-start;
-            align-items: stretch;
-            flex-flow: row wrap;
-            gap: 24px;
-        }
+		&-items {
+			width: 100%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: stretch;
+			flex-flow: row wrap;
+			gap: 24px;
+		}
 
-        &-item {
-            width: calc(20% - 24px);
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: column;
-            gap: 36px;
-            border: 2px solid #E7E7E9;
-            border-radius: 16px;
-            padding: 8px 16px 16px 16px;
-            overflow: hidden;
-            flex: 0 1 auto;
+		&-item {
+			width: calc(20% - 24px);
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 36px;
+			border: 2px solid #e7e7e9;
+			border-radius: 16px;
+			padding: 8px 16px 16px 16px;
+			overflow: hidden;
+			flex: 0 1 auto;
 
-            @media (min-width: 320px) and (max-width: 671.5px) {
-                width: 100%;
-            }
+			@media (min-width: 320px) and (max-width: 671.5px) {
+				width: 100%;
+			}
 
-            @media (min-width: 755.5px) and (max-width: 1199.5px) {
-                width: calc(50% - 24px);
-            }
+			@media (min-width: 755.5px) and (max-width: 1199.5px) {
+				width: calc(50% - 24px);
+			}
 
-            @media (min-width: 1200px) {
-                width: calc(25% - 24px);
-            }
+			@media (min-width: 1200px) {
+				width: calc(25% - 24px);
+			}
 
-            &__content {
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                gap: 24px;
+			&__content {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 24px;
 
-                svg {
-                    width: 24px;
-                    height: 24px;
-                }
-            }
+				svg {
+					width: 24px;
+					height: 24px;
+				}
+			}
 
-            &:hover {
-                box-shadow: 0px 5px 10px -3px rgba(0, 0, 0, 0.1);
+			&:hover {
+				box-shadow: 0px 5px 10px -3px rgba(0, 0, 0, 0.1);
 
-                svg {
-                    transform: translate(4px, -4px);
-                }
-            }
-        }
-    }
+				svg {
+					transform: translate(4px, -4px);
+				}
+			}
+		}
+	}
 }

@@ -1,7 +1,6 @@
 // useProductList.js
-import axios from "axios";
-import { useState } from "react";
 import { HomeData } from "@/lib/constants";
+import axios from "axios";
 import { Tool } from "../../components/Tools/ToolsList/types";
 
 const useProductList = () => {
@@ -130,12 +129,10 @@ const useProductList = () => {
 					});
 				});
 			}
-			console.log(tools, "12345546");
 			// Second API call to fetch items
 			const sortedData = tools.sort((a, b) => a.index - b.index);
 
 			if (toolslist && response) {
-				console.log(toolslist, "123");
 				toolslist.data.records.forEach((item: any, index: number) => {
 					// Find the corresponding category by id and add the item
 					const category = sortedData.find(

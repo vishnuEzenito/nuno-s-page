@@ -31,12 +31,12 @@ const Hero = () => {
 					px: isSmallScreen
 						? "1.25rem"
 						: isMediumScreen
-						? "4.5rem"
-						: isLargeScreen
-						? "4.5rem"
-						: isExtraLargeScreen
-						? "5.5rem"
-						: "4.5rem",
+							? "4.5rem"
+							: isLargeScreen
+								? "4.5rem"
+								: isExtraLargeScreen
+									? "5.5rem"
+									: "4.5rem",
 				}}
 			>
 				<Grid
@@ -67,12 +67,12 @@ const Hero = () => {
 								fontSize: isSmallScreen
 									? "28px"
 									: isMediumScreen
-									? "45px"
-									: isLargeScreen
-									? "50px"
-									: isExtraLargeScreen
-									? "50px"
-									: "45px",
+										? "45px"
+										: isLargeScreen
+											? "50px"
+											: isExtraLargeScreen
+												? "50px"
+												: "45px",
 							}}
 						>
 							Unlock your negotiation potential and maximize
@@ -87,12 +87,12 @@ const Hero = () => {
 								pr: isSmallScreen
 									? "0rem"
 									: isMediumScreen
-									? "10%"
-									: isLargeScreen
-									? "20%"
-									: isExtraLargeScreen
-									? "20%"
-									: "10%",
+										? "10%"
+										: isLargeScreen
+											? "20%"
+											: isExtraLargeScreen
+												? "20%"
+												: "10%",
 								textAlign: isSmallScreen ? "center" : "left",
 								fontFamily: "classicsans",
 								fontWeight: "light",
@@ -131,12 +131,12 @@ const Hero = () => {
 										maxWidth: isSmallScreen
 											? "auto"
 											: isMediumScreen
-											? "200px"
-											: isLargeScreen
-											? "200px"
-											: isExtraLargeScreen
-											? "200px"
-											: "200px",
+												? "200px"
+												: isLargeScreen
+													? "200px"
+													: isExtraLargeScreen
+														? "200px"
+														: "200px",
 									}}
 								>
 									<Typography
@@ -176,12 +176,12 @@ const Hero = () => {
 											maxWidth: isSmallScreen
 												? "auto"
 												: isMediumScreen
-												? "200px"
-												: isLargeScreen
-												? "200px"
-												: isExtraLargeScreen
-												? "200px"
-												: "200px",
+													? "200px"
+													: isLargeScreen
+														? "200px"
+														: isExtraLargeScreen
+															? "200px"
+															: "200px",
 										}}
 									>
 										<Typography
@@ -266,12 +266,12 @@ const Hero = () => {
 								fontSize: isSmallScreen
 									? "28px"
 									: isMediumScreen
-									? "40px"
-									: isLargeScreen
-									? "45px"
-									: isExtraLargeScreen
-									? "45px"
-									: "40rem",
+										? "40px"
+										: isLargeScreen
+											? "45px"
+											: isExtraLargeScreen
+												? "45px"
+												: "40rem",
 							}}
 						>
 							What are Impact Negotiations?
@@ -285,12 +285,12 @@ const Hero = () => {
 								pr: isSmallScreen
 									? "0rem"
 									: isMediumScreen
-									? "10%"
-									: isLargeScreen
-									? "10%"
-									: isExtraLargeScreen
-									? "10%"
-									: "10%",
+										? "10%"
+										: isLargeScreen
+											? "10%"
+											: isExtraLargeScreen
+												? "10%"
+												: "10%",
 								textAlign: isSmallScreen ? "center" : "left",
 								fontFamily: "classicsans",
 								fontWeight: "light",
@@ -314,12 +314,12 @@ const Hero = () => {
 								pr: isSmallScreen
 									? "0rem"
 									: isMediumScreen
-									? "10%"
-									: isLargeScreen
-									? "10%"
-									: isExtraLargeScreen
-									? "10%"
-									: "10%",
+										? "10%"
+										: isLargeScreen
+											? "10%"
+											: isExtraLargeScreen
+												? "10%"
+												: "10%",
 								textAlign: isSmallScreen ? "center" : "left",
 								fontFamily: "classicsans",
 								fontWeight: "light",
@@ -361,12 +361,12 @@ const Hero = () => {
 											maxWidth: isSmallScreen
 												? "auto"
 												: isMediumScreen
-												? "200px"
-												: isLargeScreen
-												? "200px"
-												: isExtraLargeScreen
-												? "200px"
-												: "200px",
+													? "200px"
+													: isLargeScreen
+														? "200px"
+														: isExtraLargeScreen
+															? "200px"
+															: "200px",
 										}}
 									>
 										<Typography

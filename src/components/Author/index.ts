@@ -1,5 +1,4 @@
-
 import Hero from "./Hero";
-import Blogs from "./Blogs"
+import Blogs from "./Blogs";
 
-export { Hero, Blogs};
+export { Hero, Blogs };

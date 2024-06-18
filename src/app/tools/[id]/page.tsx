@@ -1,26 +1,29 @@
-"use client";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/Navbar";
 import useProductList from "@/lib/hooks";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 import { LuBox } from "react-icons/lu";
-import React, { useEffect, useState } from "react";
 
-const ToolPage: React.FC = () => {
-	const { id: toolId } = useParams();
+export const generateStaticParams = async () => {
+	const { fetchtoolsData } = useProductList();
+	const data = await fetchtoolsData();
+	if (!data) return [];
+	const items = data
+		.map((item) => {
+			return item.items;
+		})
+		.flat();
+	const slugs = items.map((item) => item.slug);
+	return slugs.map((slug) => ({ id: slug }));
+};
+
+const getData = async (id: string) => {
 	const { fetchToolData } = useProductList();
-	const [toolData, setToolData] = useState<any>(null);
-
-	const getData = async () => {
-		const data = await fetchToolData(toolId as string);
-		setToolData(data);
-	};
-
-	useEffect(() => {
-		getData();
-	}, []);
-
+	const data = await fetchToolData(id as string);
+	return data;
+};
+const ToolPage = async ({ params }: any) => {
+	const toolData = await getData(params.id);
 	return (
 		<main>
 			<NavBar activeComponent="/tools/:id" />
