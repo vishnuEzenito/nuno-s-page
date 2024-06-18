@@ -1,23 +1,18 @@
-import { Button } from "@nextui-org/react";
-import React, { useRef, useEffect, useState } from "react";
 import { HomeData } from "@/lib/constants";
 import useProductList from "@/lib/hooks";
+import React, { useEffect, useRef, useState } from "react";
 import Loading from "./loading";
 
+import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
+import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import {
+	Box,
+	IconButton,
+	Paper,
 	Typography,
 	useMediaQuery,
 	useTheme,
-	Box,
-	Paper,
-	IconButton,
-	Tooltip,
 } from "@mui/material";
-import FeatherIcon from "feather-icons-react";
-import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
-import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
-import { ArrowUpRight, Star } from "react-feather";
-import Link from "next/link";
 import "../../../fonts/fonts.css";
 
 const BooksCard: React.FC<{
@@ -73,7 +68,7 @@ const BooksCard: React.FC<{
 								fontWeight: "bold",
 								fontSize: isSmallScreen ? "24px" : "32px",
 							}}
-              className="w-full whitespace-normal"
+							className="w-full whitespace-normal"
 						>
 							{bookName}
 						</span>
@@ -84,7 +79,7 @@ const BooksCard: React.FC<{
 								fontWeight: "bold",
 								fontSize: isSmallScreen ? "16px" : "20px",
 							}}
-              className="w-full whitespace-normal"
+							className="w-full whitespace-normal"
 						>
 							{author}
 						</span>
@@ -117,18 +112,15 @@ export default function Books() {
 		const fetchData = async () => {
 			if (bookData === null) {
 				const data = await fetchBookData();
-				console.log(data);
 				setLoading(false);
 			} else if (bookData !== null) {
 				setLoading(false);
 			}
-			console.log(HomeData.books.records);
 		};
 
 		fetchData();
 	}, []);
 
-	console.log();
 	return (
 		<>
 			<link

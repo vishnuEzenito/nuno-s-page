@@ -2,7 +2,6 @@ import Footer from "@/components/Footer";
 import NavBar from "@/components/Navbar";
 import useProductList from "@/lib/hooks";
 import Image from "next/image";
-import React from "react";
 import { LuBox } from "react-icons/lu";
 
 export const generateStaticParams = async () => {
@@ -24,7 +23,6 @@ const getData = async (id: string) => {
 	return data;
 };
 const ToolPage = async ({ params }: any) => {
-	console.log(params);
 	const toolData = await getData(params.id);
 	return (
 		<main>
