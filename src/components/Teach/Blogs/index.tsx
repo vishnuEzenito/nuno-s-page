@@ -45,17 +45,11 @@ export default function Blogs() {
 		fetchData();
 	}, []);
 
-	{
-		/* @ts-ignore */
-	}
-	const formatDate = (dateStr) => {
+	const formatDate = (dateStr: string) => {
 		const dateObj = new Date(dateStr);
 		const options = { day: "numeric", month: "long", year: "numeric" };
-		{
-			/* @ts-ignore */
-		}
 
-		return dateObj.toLocaleDateString("en-GB", options);
+		return dateObj.toLocaleDateString("en-GB", options as any);
 	};
 
 	return (
@@ -149,13 +143,12 @@ export default function Blogs() {
 						</>
 					) : (
 						<>
-							{/* @ts-ignore */}
-							{HomeData.blogapi.records
+							{(HomeData.blogapi.records as any)
 								.filter(
-									(item) =>
+									(item: any) =>
 										item.fields.Category !== "Nuno's post"
 								)
-								.map((item, index) => (
+								.map((item: any, index: number) => (
 									<Box
 										key={index}
 										style={{ marginBottom: "2rem" }}

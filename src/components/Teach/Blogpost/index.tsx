@@ -12,10 +12,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import useProductList from "@/lib/hooks";
 
-{
-	/* @ts-ignore */
-}
-const markdownToHtml = async (markdown) => {
+const markdownToHtml = async (markdown: any) => {
 	const result = await remark().use(html).process(markdown);
 	return result.toString();
 };
@@ -48,7 +45,9 @@ export default function BlogPost({ postId }: PostDetails) {
 	const isLargeScreen = useMediaQuery(theme.breakpoints.between("lg", "xl"));
 	const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
 	const [loading, setLoading] = useState(true);
-	const [blogPostData, setBlogPostData] = useState(HomeData.blogapi.records);
+	const [blogPostData, setBlogPostData] = useState<any>(
+		HomeData.blogapi.records
+	);
 	const scrollContainerRef = useRef(null);
 	const { fetchBlogData } = useProductList();
 
@@ -75,15 +74,12 @@ export default function BlogPost({ postId }: PostDetails) {
 				) {
 					isTaskListItem = true;
 					checked = text[1] === "x" || text[1] === "X";
-					{
-						/* @ts-ignore */
-					}
 
 					childrenArray[0] = React.cloneElement(firstChild, {
 						children: (firstChild.props.children as string)
 							.slice(3)
 							.trim(),
-					});
+					} as any);
 				}
 			}
 
@@ -144,21 +140,16 @@ export default function BlogPost({ postId }: PostDetails) {
 		const fetchData = async () => {
 			if (blogPostData === null) {
 				const data = await fetchBlogData();
-				{
-					/* @ts-ignore */
-				}
-				const post = data.records.find((item) => item.id === postId);
+				const post = data.records.find(
+					(item: any) => item.id === postId
+				);
 				if (post) {
 					setBlogPostData(post);
 				}
 				setLoading(false);
 			} else {
-				{
-					/* @ts-ignore */
-				}
-
-				const post = HomeData.blogapi.records.find(
-					(item) => item.id === postId
+				const post = (HomeData.blogapi.records as any).find(
+					(item: any) => item.id === postId
 				);
 				if (post) {
 					setBlogPostData(post);
@@ -169,18 +160,12 @@ export default function BlogPost({ postId }: PostDetails) {
 
 		fetchData();
 	}, [postId, blogPostData, fetchBlogData]);
-	{
-		/* @ts-ignore */
-	}
 
-	const formatDate = (dateStr) => {
+	const formatDate = (dateStr: string) => {
 		const dateObj = new Date(dateStr);
 		const options = { day: "numeric", month: "long", year: "numeric" };
-		{
-			/* @ts-ignore */
-		}
 
-		return dateObj.toLocaleDateString("en-GB", options);
+		return dateObj.toLocaleDateString("en-GB", options as any);
 	};
 
 	return (
@@ -437,7 +422,6 @@ export default function BlogPost({ postId }: PostDetails) {
 								fontSize: isSmallScreen ? "14px" : "18px",
 							}}
 						>
-							{/* @ts-ignore */}
 							{blogPostData.fields.AuthorName},{" "}
 							{formatDate(blogPostData.fields.Date)}
 						</Typography>
@@ -520,7 +504,7 @@ export default function BlogPost({ postId }: PostDetails) {
 						<Markdown
 							children={blogPostData.fields.Content}
 							remarkPlugins={[remarkGfm]}
-							components={customMarkdownComponents}
+							components={customMarkdownComponents as any}
 						/>
 					</Box>
 				</>
