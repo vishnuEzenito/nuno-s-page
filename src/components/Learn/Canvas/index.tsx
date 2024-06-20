@@ -56,7 +56,7 @@ export default function Canvas() {
 				href="https://cdn.jsdelivr.net/npm/@vetixy/circular-std@1.0.0/dist/index.min.css"
 				rel="stylesheet"
 			></link>
-			<Box sx={{ background: "#FCFCFC" }}>
+			<Box sx={{ background: "#FCFCFC" }} id="canvas" className="pt-24">
 				<Typography
 					variant="h1"
 					sx={{
