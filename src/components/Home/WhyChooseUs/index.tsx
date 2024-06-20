@@ -1,16 +1,7 @@
 import { HomeData } from "@/lib/constants";
 import Image from "next/image";
-import React from "react";
 
-import {
-	Typography,
-	useMediaQuery,
-	useTheme,
-	Box,
-	Toolbar,
-	Paper,
-	Grid,
-} from "@mui/material";
+import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import "../../../fonts/fonts.css";
 
 export default function WhyChooseUs() {
@@ -62,10 +53,10 @@ export default function WhyChooseUs() {
 							: isMediumScreen
 								? "3rem"
 								: isLargeScreen
-									? "3rem"
+									? "6rem"
 									: isExtraLargeScreen
-										? "3rem"
-										: "3rem",
+										? "6rem"
+										: "6rem",
 						mb: "0.5rem",
 					}}
 				>

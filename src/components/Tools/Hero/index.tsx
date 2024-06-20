@@ -139,42 +139,44 @@ const Hero = () => {
 									width: "auto",
 								}}
 							>
-								<Paper
-									sx={{
-										borderRadius: "12px",
-										background: "#B34038",
-										width: "auto",
-										px: "2rem",
-										py: "0.3rem",
-										maxWidth: isSmallScreen
-											? "auto"
-											: isMediumScreen
-												? "200px"
-												: isLargeScreen
-													? "200px"
-													: isExtraLargeScreen
-														? "200px"
-														: "200px",
-									}}
-								>
-									<Typography
-										variant="body2"
+								<Link href="#tools">
+									<Paper
 										sx={{
-											whiteSpace: "break-spaces",
-											textAlign: "center",
-											fontFamily:
-												"CircularStd, sans-serif",
-											fontWeight: 100,
-											color: "#fff",
-											fontSize: isSmallScreen
-												? "14px"
-												: "20px",
-											py: "0.5rem",
+											borderRadius: "12px",
+											background: "#B34038",
+											width: "auto",
+											px: "2rem",
+											py: "0.3rem",
+											maxWidth: isSmallScreen
+												? "auto"
+												: isMediumScreen
+													? "200px"
+													: isLargeScreen
+														? "200px"
+														: isExtraLargeScreen
+															? "200px"
+															: "200px",
 										}}
 									>
-										Explore Tools
-									</Typography>
-								</Paper>
+										<Typography
+											variant="body2"
+											sx={{
+												whiteSpace: "break-spaces",
+												textAlign: "center",
+												fontFamily:
+													"CircularStd, sans-serif",
+												fontWeight: 100,
+												color: "#fff",
+												fontSize: isSmallScreen
+													? "14px"
+													: "20px",
+												py: "0.5rem",
+											}}
+										>
+											Explore Tools
+										</Typography>
+									</Paper>
+								</Link>
 							</ButtonBase>
 						</Box>
 					</Grid>

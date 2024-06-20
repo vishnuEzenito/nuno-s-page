@@ -31,7 +31,11 @@ const FreeSampleModal = ({ open, handleClose }: any) => {
 		e.preventDefault();
 		setSubmitting(true);
 		try {
-			await axios.post("https://yourapi.com/endpoint", { name, email });
+			await axios.post(
+				"https://us-central1-animated-alloy-382413.cloudfunctions.net/forms/freesample",
+				{ name, email, accesskey: "975DFA5EB9227B59151813587AEF4" },
+				{ headers: { "Content-Type": "application/json" } }
+			);
 			setSuccess(true);
 			setFormLoading(false);
 			setTimeout(() => {

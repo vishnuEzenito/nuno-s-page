@@ -66,7 +66,9 @@ export default function Blogs() {
 					alignContent: "center",
 					width: "100%",
 					maxWidth: "1400px",
+					paddingTop: "5rem",
 				}}
+				id="resources"
 			>
 				<Typography
 					variant="h1"
