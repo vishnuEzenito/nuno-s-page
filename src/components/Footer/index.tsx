@@ -239,7 +239,7 @@ export default function Footer() {
 								}}
 							>
 								<Image
-									src="/insta.svg"
+									src="/vectors/instagram.svg"
 									alt="phone icon"
 									width={24}
 									height={24}
@@ -247,7 +247,7 @@ export default function Footer() {
 									style={{ margin: "0.5rem" }}
 								/>
 								<Image
-									src="/linkedin.svg"
+									src="/vectors/linkedin.svg"
 									alt="phone icon"
 									width={24}
 									height={24}
@@ -255,7 +255,7 @@ export default function Footer() {
 									style={{ margin: "0.5rem" }}
 								/>
 								<Image
-									src="/whatsapp.svg"
+									src="/vectors/whatsapp.svg"
 									alt="phone icon"
 									width={24}
 									height={24}
