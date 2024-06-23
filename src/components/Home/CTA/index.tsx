@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Carousel from "react-material-ui-carousel";
-import {
-	Button,
-	Typography,
-	Grid,
-	Box,
-	ButtonBase,
-	Paper,
-} from "@mui/material";
-import Link from "next/link";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { FreeSampleModal, JoinWaitlist } from "@/components/Home";
+import { Box, ButtonBase, Grid, Paper, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import "../../../fonts/fonts.css";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { loadStripe } from "@stripe/stripe-js";
-import FreeSampleModal from "../freesample"; // Import the modal component
+import { useState } from "react";
+import "../../../fonts/fonts.css";
 
 const stripePromise = loadStripe(
 	"pk_test_51P9UN318WhMcYo2CgHGjvYSegQMpLYcJYzL83bvjUeTWecIATBQ1xhEWBVPLBKbEzucL5Z8kuqjrWvMmqzs11hWW00ntEQ4KIS"
@@ -25,9 +16,9 @@ const Hero = () => {
 	const isMediumScreen = useMediaQuery(theme.breakpoints.between("md", "lg"));
 	const isLargeScreen = useMediaQuery(theme.breakpoints.between("lg", "xl"));
 	const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
-	const [loading, setLoading] = useState(true);
 	const [stripe, setStripe] = useState(null);
-	const [modalOpen, setModalOpen] = useState(false); // State to control the modal
+	const [openGetFreeSamplePopup, setOpenGetFreeSamplePopup] = useState(false);
+	const [openJoinWaitlistPopup, setOpenJoinWaitlistPopup] = useState(false);
 
 	const handleClick = async () => {
 		if (!stripe) return;
@@ -156,7 +147,7 @@ const Hero = () => {
 						>
 							<ButtonBase
 								role="link"
-								onClick={handleClick}
+								onClick={() => setOpenJoinWaitlistPopup(true)}
 								disabled={!stripe}
 								sx={{
 									mt: "2rem",
@@ -202,7 +193,7 @@ const Hero = () => {
 								</Paper>
 							</ButtonBase>
 							<ButtonBase
-								onClick={() => setModalOpen(true)}
+								onClick={() => setOpenGetFreeSamplePopup(true)}
 								sx={{
 									// Open modal on click
 									mt: "2rem",
@@ -243,10 +234,12 @@ const Hero = () => {
 				</Grid>
 			</Box>
 			<FreeSampleModal
-				open={modalOpen}
-				handleClose={() => setModalOpen(false)}
-			/>{" "}
-			{/* Include modal */}
+				open={openGetFreeSamplePopup}
+				handleClose={() => setOpenGetFreeSamplePopup(false)}
+			/>
+			{openJoinWaitlistPopup ? (
+				<JoinWaitlist onClose={() => setOpenJoinWaitlistPopup(false)} />
+			) : null}
 		</>
 	);
 };
