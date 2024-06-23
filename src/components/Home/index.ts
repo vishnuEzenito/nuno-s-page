@@ -1,7 +1,15 @@
-import FreeSampleModal from "./freesample";
 import CTA from "./CTA";
 import Hero from "./Hero";
-import WhyChooseUs from "./WhyChooseUs";
+import JoinWaitlist from "./JoinWaitlist";
 import SellOnAllMatter from "./SellOnAllMatter";
+import WhyChooseUs from "./WhyChooseUs";
+import FreeSampleModal from "./freesample";
 
-export { FreeSampleModal, CTA, Hero, WhyChooseUs, SellOnAllMatter };
+export {
+	CTA,
+	FreeSampleModal,
+	Hero,
+	JoinWaitlist,
+	SellOnAllMatter,
+	WhyChooseUs,
+};

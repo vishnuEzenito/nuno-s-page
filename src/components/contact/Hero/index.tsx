@@ -27,7 +27,6 @@ const Hero = () => {
 	const isMediumScreen = useMediaQuery(theme.breakpoints.between("md", "lg"));
 	const isLargeScreen = useMediaQuery(theme.breakpoints.between("lg", "xl"));
 	const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
-	const [loading, setLoading] = useState(true);
 
 	return (
 		<>
@@ -58,7 +57,7 @@ const Hero = () => {
 									: "4.5rem",
 				}}
 			>
-				<Typography
+				{/* <Typography
 					variant="h1"
 					sx={{
 						textAlign: "center",
@@ -195,7 +194,12 @@ const Hero = () => {
 							</Typography>
 						</Paper>
 					</ButtonBase>
-				</Box>
+				</Box> */}
+				<iframe
+					width="100%"
+					height="560px"
+					src="https://cdn.forms-content-1.sg-form.com/254e7221-3132-11ef-8478-36ec83a05feb"
+				/>
 			</Box>
 		</>
 	);
