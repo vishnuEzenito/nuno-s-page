@@ -131,10 +131,10 @@ const Hero = () => {
 											? "50px"
 											: isExtraLargeScreen
 												? "50px"
-												: "45rem",
+												: "45px",
 							}}
 						>
-							Become a Negotiation Trainer with us
+							Become an Impact Negotiations Trainer
 						</Typography>
 						<Typography
 							variant="subtitle2"

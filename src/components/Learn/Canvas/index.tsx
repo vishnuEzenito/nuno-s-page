@@ -135,8 +135,6 @@ export default function Canvas() {
 										marginBottom: "0.5rem",
 									}}
 								>
-									{" "}
-									{/* Added marginBottom */}
 									<Paper
 										key={index}
 										sx={{
@@ -150,12 +148,11 @@ export default function Canvas() {
 												: "314px",
 										}}
 									>
-										{/* @ts-ignore */}
-										<Link
-											href={item.fields.url}
+										<a
+											href={item?.fields?.url}
+											target="_blank"
 											key={index}
 										>
-											{/* @ts-ignore */}
 											<Paper
 												elevation={0}
 												sx={{
@@ -188,14 +185,17 @@ export default function Canvas() {
 													}}
 												>
 													{/* @ts-ignore */}
-													{item.fields.tag}
+													{item?.fields?.tag}
 												</Typography>
 											</Paper>
 
 											{/* @ts-ignore */}
 											<img
-												src={item.fields.image[0].url}
-												alt={item.fields.name}
+												src={
+													item?.fields?.image?.[0]
+														?.url
+												}
+												alt={item?.fields?.name}
 												style={{
 													width: "100%",
 													height: "60%",
@@ -234,7 +234,8 @@ export default function Canvas() {
 													>
 														<Tooltip
 															title={
-																item.fields.name
+																item?.fields
+																	?.name
 															}
 															arrow
 														>
@@ -260,10 +261,9 @@ export default function Canvas() {
 																		"ellipsis",
 																}}
 															>
-																{/* @ts-ignore */}
 																{
-																	item.fields
-																		.name
+																	item?.fields
+																		?.name
 																}
 															</Typography>
 														</Tooltip>
@@ -313,13 +313,13 @@ export default function Canvas() {
 														}}
 													>
 														{
-															item.fields
-																.description
+															item?.fields
+																?.description
 														}
 													</Typography>
 												</Box>
 											</Box>
-										</Link>
+										</a>
 									</Paper>
 								</Box>
 							))}

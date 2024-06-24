@@ -62,33 +62,9 @@ const JoinWaitlist: React.FC<JoinWaitlistProps> = ({ onClose }) => {
 						flexDirection: "column",
 					}}
 				>
-					<Typography
-						variant="h1"
-						sx={{
-							textAlign: "center",
-							fontFamily: "CircularStd, sans-serif",
-							fontWeight: 500,
-							color: "#5B5B5B",
-							fontSize: isSmallScreen ? "20px" : "28px",
-						}}
-					>
-						Get Your Free Sample
-					</Typography>
-					<Typography
-						variant="h3"
-						sx={{
-							fontSize: isSmallScreen ? "14px" : "16px",
-							textAlign: "center",
-							mt: "1rem",
-							px: 3,
-						}}
-					>
-						By submitting you agree to be included in our mailing
-						list. You can unsubscribe any time.
-					</Typography>
 					<iframe
 						width="600px"
-						height="560px"
+						height="580px"
 						src="https://cdn.forms-content-1.sg-form.com/254e7221-3132-11ef-8478-36ec83a05feb"
 					/>
 				</Box>

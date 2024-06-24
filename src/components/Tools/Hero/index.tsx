@@ -1,22 +1,10 @@
 // components/HeroCarousel.js
 
-import React, { useEffect, useState } from "react";
-import Carousel from "react-material-ui-carousel";
-import {
-	Button,
-	Typography,
-	Grid,
-	Box,
-	ButtonBase,
-	Paper,
-} from "@mui/material";
-import { Toolbar } from "@mui/material";
-import Link from "next/link";
+import { Box, Grid, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import Skeleton from "@mui/material/Skeleton";
-import Stack from "@mui/material/Stack";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import "../../../fonts/fonts.css";
 
 const Hero = () => {
@@ -92,7 +80,7 @@ const Hero = () => {
 											? "50px"
 											: isExtraLargeScreen
 												? "50px"
-												: "45rem",
+												: "45px",
 							}}
 						>
 							50+ powerful tools to negotiate a better job, life,
@@ -125,7 +113,7 @@ const Hero = () => {
 							deals like an expert, and keep improving for best
 							impact
 						</Typography>
-						<Box
+						{/* <Box
 							sx={{
 								display: "flex",
 								flexDirection: "row",
@@ -178,7 +166,7 @@ const Hero = () => {
 									</Paper>
 								</Link>
 							</ButtonBase>
-						</Box>
+						</Box> */}
 					</Grid>
 					<Grid item key={"image2"} xs={12} md={6} lg={6}>
 						<img

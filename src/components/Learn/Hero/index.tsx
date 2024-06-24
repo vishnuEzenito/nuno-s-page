@@ -132,7 +132,7 @@ const Hero = () => {
 											? "50px"
 											: isExtraLargeScreen
 												? "50px"
-												: "45rem",
+												: "45px",
 							}}
 						>
 							Learn more from other resources

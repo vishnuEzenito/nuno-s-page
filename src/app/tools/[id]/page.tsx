@@ -46,27 +46,48 @@ const ToolPage = async ({ params }: any) => {
 								<span>Use Case: {toolData.useCase}</span>
 							</div>
 						</div>
-						{toolData.oneLineSummary ? (
+						{/* toolData.oneLineSummary ? (
 							<div className="section w-full flex justify-center items-start flex-col gap-4 py-4">
 								<h2>Summary</h2>
 								<p>{toolData.oneLineSummary}</p>
 							</div>
-						) : null}
+						) : null */}
 						{toolData.purpose ? (
 							<div className="section w-full flex justify-center items-start flex-col gap-4 py-4">
-								<h2>Purpose</h2>
+								<h2
+									style={{
+										fontSize: "1.25rem",
+										fontWeight: "bold",
+									}}
+								>
+									Purpose
+								</h2>
 								<p>{toolData.purpose}</p>
 							</div>
 						) : null}
 						{toolData.whenToUse ? (
 							<div className="section flex justify-center items-start flex-col gap-4 py-4">
-								<h2>When to Use</h2>
+								<h2
+									style={{
+										fontSize: "1.25rem",
+										fontWeight: "bold",
+									}}
+								>
+									When to Use
+								</h2>
 								<p>{toolData.whenToUse}</p>
 							</div>
 						) : null}
 						{toolData.references ? (
 							<div className="section flex justify-center items-start flex-col gap-4 py-4">
-								<h2>References</h2>
+								<h2
+									style={{
+										fontSize: "1.25rem",
+										fontWeight: "bold",
+									}}
+								>
+									References
+								</h2>
 								<p>{toolData.references}</p>
 							</div>
 						) : null}

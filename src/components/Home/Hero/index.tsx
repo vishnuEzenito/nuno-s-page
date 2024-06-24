@@ -1,12 +1,12 @@
 // components/HeroCarousel.js
 
 import { Box, ButtonBase, Grid, Paper, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
-import Link from "next/link";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import "../../../fonts/fonts.css";
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import "../../../fonts/fonts.css";
 
 const Hero = () => {
 	const theme = useTheme();
@@ -271,7 +271,7 @@ const Hero = () => {
 											? "45px"
 											: isExtraLargeScreen
 												? "45px"
-												: "40rem",
+												: "40px",
 							}}
 						>
 							What are Impact Negotiations?
@@ -336,7 +336,7 @@ const Hero = () => {
 							what truly matters to us, our families, our
 							organizations, our communities, and the world.
 						</Typography>
-						<Box
+						{/* <Box
 							sx={{
 								display: "flex",
 								flexDirection: "row",
@@ -389,7 +389,7 @@ const Hero = () => {
 									</Paper>
 								</Link>
 							</ButtonBase>
-						</Box>
+						</Box> */}
 					</Grid>
 				</Grid>
 			</Box>

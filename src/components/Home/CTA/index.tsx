@@ -95,7 +95,7 @@ const Hero = () => {
 								textAlign: isSmallScreen ? "center" : "left",
 								fontFamily: "classicsans",
 								fontWeight: "bold",
-								color: "#5B5B5B",
+								color: "#333333",
 								fontSize: isSmallScreen
 									? "28px"
 									: isMediumScreen
@@ -104,11 +104,14 @@ const Hero = () => {
 											? "45px"
 											: isExtraLargeScreen
 												? "45px"
-												: "40rem",
+												: "40px",
 							}}
 						>
-							Empower yourself with 55 tools to negotiate a better
-							job, life, community, and world
+							Empower yourself with 55 tools
+							<br />
+							to negotiate a better job, life,
+							<br />
+							community, and world
 						</Typography>
 						<Typography
 							variant="subtitle2"
