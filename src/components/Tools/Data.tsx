@@ -8,7 +8,6 @@ import {
 	useMediaQuery,
 	useTheme,
 } from "@mui/material";
-import Image from "next/image";
 import React, { useState } from "react";
 import { LuBox } from "react-icons/lu";
 
@@ -30,7 +29,7 @@ const ToolsData: React.FC<ToolsDataProps> = ({ id, toolData }) => {
 				{toolData ? (
 					<>
 						<div className="jumbotron w-full flex justify-start items-center gap-4 p-8 rounded-xl shadow-xl">
-							<Image
+							<img
 								src={toolData.icon?.[0]?.url}
 								alt={toolData.icon?.[0]?.filename}
 								width={toolData.icon?.[0]?.width}
