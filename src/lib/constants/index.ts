@@ -114,7 +114,7 @@ const HomeData = {
 				url: "",
 				text: "Negotiate",
 				content:
-					"for maximum impact: adopt empowering mindsets,  prepare with the Negotiation Canvas,  and apply, impact, and learn",
+					"for maximum impact: adopt empowering mindsets, prepare with the Negotiation Canvas, and apply, impact, and learn",
 			},
 			{
 				id: 2,

@@ -158,7 +158,7 @@ export default function Books() {
 						mb: "0.5rem",
 					}}
 				>
-					Go deeper with our bibliography
+					Check the bibliography
 				</Typography>
 				<Typography
 					variant="subtitle2"

@@ -121,7 +121,9 @@ const FreeSampleModal = ({ open, handleClose }: any) => {
 						}}
 					>
 						By submitting you agree to be included in our mailing
-						list. You can unsubscribe any time.
+						list.
+						<br />
+						You can unsubscribe any time.
 					</Typography>
 					<Box
 						component="form"

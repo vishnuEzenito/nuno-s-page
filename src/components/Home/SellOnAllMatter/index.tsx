@@ -133,10 +133,10 @@ const Hero = () => {
 											? "45px"
 											: isExtraLargeScreen
 												? "45px"
-												: "40rem",
+												: "40px",
 							}}
 						>
-							Find a tool to address your goals
+							Find a tool for your goals
 						</Typography>
 						<Typography
 							variant="subtitle2"

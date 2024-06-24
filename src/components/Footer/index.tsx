@@ -184,8 +184,10 @@ export default function Footer() {
 									fontSize: isSmallScreen ? "14px" : "16px",
 									mt: "0.5rem",
 								}}
+								component="a"
+								href="mailto:contact@impactnegotiations.org"
 							>
-								contact@impactnegotiations.com
+								contact@impactnegotiations.org
 							</Typography>
 						</Grid>
 						<Grid

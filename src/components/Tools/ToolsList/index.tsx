@@ -149,7 +149,9 @@ export default function List() {
 								key={`tools-blocks-${block.title}`}
 							>
 								<div className={classes("-block-head")}>
-									<h3>{block.title}</h3>
+									<h3 style={{ fontWeight: "bold" }}>
+										{block.title}
+									</h3>
 									{index === 0 ? (
 										<FormControlLabel
 											control={
