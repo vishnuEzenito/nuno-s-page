@@ -153,7 +153,10 @@ export default function Blogs() {
 								.map((item: any, index: number) => (
 									<Box
 										key={index}
-										style={{ marginBottom: "2rem" }}
+										style={{
+											marginBottom: "2rem",
+											overflow: "hidden",
+										}}
 									>
 										<Paper
 											key={`blog-${index}`}

@@ -124,7 +124,7 @@ const Hero = () => {
 								textAlign: isSmallScreen ? "center" : "left",
 								fontFamily: "classicsans",
 								fontWeight: "bold",
-								color: "#5B5B5B",
+								color: "#333333",
 								fontSize: isSmallScreen
 									? "28px"
 									: isMediumScreen

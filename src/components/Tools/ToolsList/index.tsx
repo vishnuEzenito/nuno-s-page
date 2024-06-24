@@ -1,3 +1,4 @@
+"use client";
 import useProductList from "@/lib/hooks";
 import { stylesConfig } from "@/lib/utils/functions";
 import { FormControlLabel, Switch } from "@mui/material";
@@ -98,8 +99,8 @@ export default function List() {
 				rel="stylesheet"
 			/>
 			<div className={classes("-header")}>
-				<h1>Find the right tool</h1>
-				<h3>
+				<h1 style={{ color: "#333333" }}>Find the right tool</h1>
+				<h3 style={{ color: "#333333" }}>
 					to address your goals and challenges towards successful
 					negotiation
 				</h3>
@@ -109,7 +110,7 @@ export default function List() {
 			) : (
 				<>
 					<div className={classes("-heading")}>
-						<h1>
+						<h1 style={{ color: "#333333" }}>
 							{tools?.find((tool) => tool.id === activeTool)
 								?.title ?? ""}
 						</h1>
