@@ -144,7 +144,7 @@ export default function Blogs() {
 							{(HomeData.blogapi.records as any)
 								.filter(
 									(item: any) =>
-										item.fields.Category === "Nuno's post"
+										item?.fields?.Category === "Nuno's post"
 								)
 								.map((item: any, index: number) => (
 									<Box
@@ -170,10 +170,11 @@ export default function Blogs() {
 											>
 												<img
 													src={
-														item.fields.thumbnail[0]
-															.url
+														item?.fields
+															?.thumbnail?.[0]
+															?.url
 													}
-													alt={item.fields.title}
+													alt={item?.fields?.title}
 													style={{
 														width: "100%",
 														height: "60%",
@@ -207,7 +208,7 @@ export default function Blogs() {
 																	: "14px",
 														}}
 													>
-														{item.fields.Category}
+														{item?.fields?.Category}
 													</Typography>
 													<Box
 														sx={{
@@ -228,8 +229,8 @@ export default function Blogs() {
 																p: "0",
 															}}
 														>
-															{item.fields.Title
-																.length <=
+															{item?.fields?.Title
+																?.length <=
 															60 ? (
 																<Typography
 																	variant="body2"
@@ -253,8 +254,8 @@ export default function Blogs() {
 																>
 																	{
 																		item
-																			.fields
-																			.Title
+																			?.fields
+																			?.Title
 																	}
 																</Typography>
 															) : (
@@ -279,14 +280,14 @@ export default function Blogs() {
 																				"visible",
 																		}}
 																	>
-																		{item.text.slice(
+																		{item?.text?.slice(
 																			0,
 																			30
 																		)}
 																	</Typography>
 																	<Tooltip
 																		title={
-																			item.text
+																			item?.text
 																		}
 																		arrow
 																	>
@@ -313,7 +314,7 @@ export default function Blogs() {
 																			}}
 																		>
 																			-
-																			{item.text.slice(
+																			{item?.text?.slice(
 																				30
 																			)}
 																		</Typography>
@@ -349,12 +350,13 @@ export default function Blogs() {
 															}}
 														>
 															{
-																item.fields
-																	.AuthorName
+																item?.fields
+																	?.AuthorName
 															}
 															,{" "}
 															{formatDate(
-																item.fields.Date
+																item?.fields
+																	?.Date
 															)}
 														</Typography>
 													</Box>

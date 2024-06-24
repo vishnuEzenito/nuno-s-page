@@ -23,6 +23,7 @@ export default function List() {
 	useEffect(() => {
 		const fetchData = async () => {
 			const data: any = await fetchtoolsData();
+			console.log(data);
 			settools(data);
 			setloading(false); // Set loading to false after data is fetched
 		};

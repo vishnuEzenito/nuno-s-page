@@ -112,6 +112,8 @@ const useProductList = () => {
 					},
 				}
 			);
+			console.log("res", response.data);
+			console.log("toolslist", toolslist.data);
 
 			const tools: Array<Tool> = [];
 			if (response) {
@@ -131,8 +133,10 @@ const useProductList = () => {
 			}
 			// Second API call to fetch items
 			const sortedData = tools.sort((a, b) => a.index - b.index);
+			console.log("both data", toolslist.data, response.data);
 
-			if (toolslist && response) {
+			if (toolslist.data && response.data) {
+				console.log("at least got in");
 				toolslist.data.records.forEach((item: any, index: number) => {
 					// Find the corresponding category by id and add the item
 					const category = sortedData.find(
@@ -141,15 +145,16 @@ const useProductList = () => {
 
 					if (category) {
 						category.items.push({
-							text: item.fields.Toolname,
-							category: item.fields.category,
-							useCase: item.fields.useCase,
-							slug: item.fields.uuid,
-							icon: item.fields.icon[0].url,
-							id: item.fields.Sectionid[0],
+							text: item?.fields?.Toolname,
+							category: item?.fields?.category,
+							useCase: item?.fields?.useCase,
+							slug: item?.fields?.uuid,
+							icon: item?.fields?.icon?.[0]?.url,
+							id: item?.fields?.Sectionid?.[0],
 						});
 					}
 				});
+				console.log("sortedData", sortedData);
 				return sortedData;
 			}
 		} catch (error) {
@@ -171,8 +176,8 @@ const useProductList = () => {
 			);
 			const records = response.data.records;
 			const toolData = records.find(
-				(record: any) => record.fields.uuid === toolId
-			).fields;
+				(record: any) => record?.fields?.uuid === toolId
+			)?.fields;
 			return toolData;
 		} catch (error) {
 			console.error("Error fetching data:", error);
