@@ -151,7 +151,6 @@ const Hero = () => {
 							<ButtonBase
 								role="link"
 								onClick={() => setOpenJoinWaitlistPopup(true)}
-								disabled={!stripe}
 								sx={{
 									mt: "2rem",
 									borderRadius: "12px",

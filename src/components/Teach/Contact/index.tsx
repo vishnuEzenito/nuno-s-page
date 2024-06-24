@@ -1,24 +1,19 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Carousel from "react-material-ui-carousel";
+import { TextareaAutosize as BaseTextareaAutosize } from "@mui/base/TextareaAutosize";
 import {
-	Button,
-	Typography,
-	Grid,
 	Box,
 	ButtonBase,
 	Paper,
+	TextField,
+	Typography,
+	styled,
 } from "@mui/material";
-import { TextField, Alert, AlertTitle } from "@mui/material";
+import { useState } from "react";
 
-import { Toolbar } from "@mui/material";
-import Link from "next/link";
-
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { blue, grey } from "@mui/material/colors";
 import { useTheme } from "@mui/material/styles";
-import Skeleton from "@mui/material/Skeleton";
-import Stack from "@mui/material/Stack";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import "../../../fonts/fonts.css";
 
 const Contact = () => {
@@ -28,6 +23,36 @@ const Contact = () => {
 	const isLargeScreen = useMediaQuery(theme.breakpoints.between("lg", "xl"));
 	const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
 	const [loading, setLoading] = useState(true);
+	const Textarea = styled(BaseTextareaAutosize)(
+		({ theme }) => `
+		box-sizing: border-box;
+		width: 100%;
+		font-family: 'IBM Plex Sans', sans-serif;
+		font-size: 0.875rem;
+		font-weight: 400;
+		line-height: 1.5;
+		padding: 16px;
+		border-radius: 4px;
+		color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
+		background: #f4f4f4;
+		border: 1px solid rgba(0, 0, 0, 0.23);
+		box-shadow: 0px 2px 2px ${theme.palette.mode === "dark" ? grey[900] : grey[50]};
+	
+		&:hover {
+		  border-color: rgba(0, 0, 0, 0.87);
+		}
+	
+		&:focus {
+		  border-color: ${blue[400]};
+		  box-shadow: 0 0 0 3px ${theme.palette.mode === "dark" ? blue[600] : blue[200]};
+		}
+	
+		// firefox
+		&:focus-visible {
+		  outline: 0;
+		}
+	  `
+	);
 
 	return (
 		<>
@@ -145,17 +170,12 @@ const Contact = () => {
 						}}
 					/>
 
-					<TextField
+					<Textarea
 						name="Course"
 						id="course"
-						placeholder="course"
-						type="text"
+						placeholder="explain your needs, target audiences, etc"
+						minRows={3}
 						required
-						sx={{
-							background: "#F4F4F4",
-							borderRadius: "12px",
-							width: "100%",
-						}}
 					/>
 				</Box>
 				<Box
