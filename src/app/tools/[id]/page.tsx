@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import NavBar from "@/components/Navbar";
 import ToolsData from "@/components/Tools/Data";
 import useProductList from "@/lib/hooks";
+import { useSearchParams } from "next/navigation";
 
 export const generateStaticParams = async () => {
 	const { fetchtoolsData } = useProductList();

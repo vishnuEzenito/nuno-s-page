@@ -190,6 +190,10 @@
 				}
 			}
 
+			&--focused {
+				background-color: rgba(0, 0, 0, 0.05);
+			}
+
 			&:hover {
 				box-shadow: 0px 5px 10px -3px rgba(0, 0, 0, 0.1);
 

@@ -220,7 +220,7 @@ const Contact = () => {
 					width="640"
 					height="2500"
 					style={{
-						maxW: "100%",
+						maxWidth: "100%",
 					}}
 				>
 					Loading…

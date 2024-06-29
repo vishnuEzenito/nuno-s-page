@@ -1,5 +1,5 @@
 "use client";
-import { JoinWaitlist } from "@/components/Home";
+import { JoinWaitlist } from "@/components/Modals";
 import {
 	Box,
 	ButtonBase,
@@ -8,7 +8,9 @@ import {
 	useMediaQuery,
 	useTheme,
 } from "@mui/material";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { ArrowLeft } from "react-feather";
 import { LuBox } from "react-icons/lu";
 
 type ToolsDataProps = {
@@ -17,7 +19,9 @@ type ToolsDataProps = {
 };
 
 const ToolsData: React.FC<ToolsDataProps> = ({ id, toolData }) => {
+	console.log("tool data", toolData);
 	const theme = useTheme();
+	const router = useRouter();
 	const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 	const isMediumScreen = useMediaQuery(theme.breakpoints.between("md", "lg"));
 	const isLargeScreen = useMediaQuery(theme.breakpoints.between("lg", "xl"));
@@ -25,7 +29,17 @@ const ToolsData: React.FC<ToolsDataProps> = ({ id, toolData }) => {
 	const [openJoinWaitlistPopup, setOpenJoinWaitlistPopup] = useState(false);
 	return (
 		<>
-			<section className="w-full flex justify-start items-start flex-col gap-2 px-4 sm:px-[7%] py-8">
+			<div className="w-full flex justify-start items-center px-4 sm:px-[7%]">
+				<button
+					className="w-12 h-12 rounded-full p-2 bg-[transparent] hover:bg-[rgba(0,0,0,0.05)] transition-all ease-in-out duration-200"
+					onClick={() => {
+						router.push(`/tools?ref=${id}`);
+					}}
+				>
+					<ArrowLeft className="w-full h-full" />
+				</button>
+			</div>
+			<section className="w-full flex justify-start items-start flex-col gap-2 px-4 sm:px-[7%] pt-8 pb-10">
 				{toolData ? (
 					<>
 						<div className="jumbotron w-full flex justify-start items-center gap-4 p-8 rounded-xl shadow-xl">
