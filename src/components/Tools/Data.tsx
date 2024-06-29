@@ -19,7 +19,6 @@ type ToolsDataProps = {
 };
 
 const ToolsData: React.FC<ToolsDataProps> = ({ id, toolData }) => {
-	console.log("tool data", toolData);
 	const theme = useTheme();
 	const router = useRouter();
 	const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));

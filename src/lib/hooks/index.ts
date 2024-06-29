@@ -81,7 +81,6 @@ const useProductList = () => {
 			);
 
 			// Update HomeData with the fetched data
-			console.log("in this shitty hook", response.data.records);
 			HomeData.canvas.list = response.data.records;
 
 			return response.data;
@@ -113,8 +112,6 @@ const useProductList = () => {
 					},
 				}
 			);
-			console.log("res", response.data);
-			console.log("toolslist", toolslist.data);
 
 			const tools: Array<Tool> = [];
 			if (response) {
@@ -134,10 +131,8 @@ const useProductList = () => {
 			}
 			// Second API call to fetch items
 			// const sortedData = tools.sort((a, b) => a.index - b.index);
-			console.log("both data", toolslist.data, response.data);
 
 			if (toolslist.data && response.data) {
-				console.log("at least got in");
 				toolslist.data.records.forEach((item: any, index: number) => {
 					// Find the corresponding category by id and add the item
 					const category = tools.find(
@@ -155,7 +150,6 @@ const useProductList = () => {
 						});
 					}
 				});
-				// console.log("sortedData", sortedData);
 				return tools;
 			}
 		} catch (error) {

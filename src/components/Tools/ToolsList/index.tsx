@@ -72,11 +72,6 @@ const ToolsList: React.FC<ToolsListProps> = ({ tools }) => {
 	useEffect(() => {
 		setTimeout(() => {
 			if (focusedToolId) {
-				console.log(
-					focusedToolId,
-					"docused element",
-					document.getElementById(focusedToolId)
-				);
 				document
 					.getElementById(focusedToolId)
 					?.scrollIntoView({ behavior: "smooth" });
