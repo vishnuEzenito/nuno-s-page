@@ -119,19 +119,6 @@ const Hero = () => {
 					/>
 
 					<TextField
-						name="Org"
-						id="org"
-						placeholder="organisation"
-						type="org"
-						required
-						sx={{
-							background: "#F4F4F4",
-							borderRadius: "12px",
-							width: "100%",
-						}}
-					/>
-
-					<TextField
 						id="message"
 						name="message"
 						label=""
@@ -147,11 +134,51 @@ const Hero = () => {
 					/>
 				</Box>
 				<Box
-					sx={{ display: "flex", flexDirection: "row", gap: "2rem" }}
+					sx={{
+						width: "50%",
+						display: "flex",
+						justifyContent: "space-between",
+						alignItems: "center",
+						flexDirection: isSmallScreen ? "column" : "row",
+						gap: "2rem",
+						mt: "2rem",
+					}}
 				>
 					<ButtonBase
 						sx={{
-							mt: "2rem",
+							borderRadius: "12px",
+							width: "auto",
+						}}
+						onClick={() => setOpenMailListPopup(true)}
+					>
+						<Paper
+							sx={{
+								borderRadius: "12px",
+								background: "#fff",
+								width: "auto",
+								px: "2rem",
+								py: "0.3rem",
+								minWidth: "200px",
+							}}
+						>
+							<Typography
+								variant="body2"
+								sx={{
+									whiteSpace: "break-spaces",
+									textAlign: "center",
+									fontFamily: "CircularStd, sans-serif",
+									fontWeight: 100,
+									color: "#B34038",
+									fontSize: isSmallScreen ? "14px" : "20px",
+									py: "0.5rem",
+								}}
+							>
+								Join our mailing list
+							</Typography>
+						</Paper>
+					</ButtonBase>
+					<ButtonBase
+						sx={{
 							borderRadius: "12px",
 							width: "auto",
 						}}
