@@ -3,6 +3,7 @@ import NavBar from "@/components/Navbar";
 import { Hero, List } from "@/components/Tools";
 import useProductList from "@/lib/hooks";
 import { Box } from "@mui/material";
+import { Suspense } from "react";
 
 const getData = async () => {
 	const { fetchtoolsData } = useProductList();
@@ -20,7 +21,9 @@ export default async function AllToolsPage() {
 			<Box component="section" id="signup">
 				<Hero />
 			</Box>
-			<List tools={allTools} />
+			<Suspense>
+				<List tools={allTools} />
+			</Suspense>
 			<Box component="section" id="footer">
 				<Footer />
 			</Box>
