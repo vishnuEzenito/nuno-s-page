@@ -105,7 +105,7 @@ const useProductList = () => {
 			);
 
 			const toolslist = await axios.get(
-				"https://api.airtable.com/v0/appkag7HFvxhwiXEZ/tblG7NksTQd4ni6lR",
+				"https://api.airtable.com/v0/appkag7HFvxhwiXEZ/tblG7NksTQd4ni6lR?sort[0][field]=category&sort[0][direction]=asc",
 				{
 					headers: {
 						Authorization:
@@ -133,14 +133,14 @@ const useProductList = () => {
 				});
 			}
 			// Second API call to fetch items
-			const sortedData = tools.sort((a, b) => a.index - b.index);
+			// const sortedData = tools.sort((a, b) => a.index - b.index);
 			console.log("both data", toolslist.data, response.data);
 
 			if (toolslist.data && response.data) {
 				console.log("at least got in");
 				toolslist.data.records.forEach((item: any, index: number) => {
 					// Find the corresponding category by id and add the item
-					const category = sortedData.find(
+					const category = tools.find(
 						(tool) => tool.id === item.fields.Sectionid[0]
 					);
 
@@ -155,8 +155,8 @@ const useProductList = () => {
 						});
 					}
 				});
-				console.log("sortedData", sortedData);
-				return sortedData;
+				// console.log("sortedData", sortedData);
+				return tools;
 			}
 		} catch (error) {
 			console.error("Error fetching data:", error);
