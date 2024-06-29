@@ -1,31 +1,26 @@
 "use client";
 
-import React from "react";
+import BusinessIcon from "@mui/icons-material/Business";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import PhoneIcon from "@mui/icons-material/Phone";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import StorefrontIcon from "@mui/icons-material/Storefront";
 import {
 	AppBar,
-	Toolbar,
-	IconButton,
-	Typography,
-	Button,
+	Box,
 	Drawer,
+	IconButton,
 	List,
 	ListItem,
-	ListItemIcon,
 	ListItemText,
-	Container,
+	Toolbar,
+	Typography,
 	useMediaQuery,
 	useTheme,
-	Box,
-	Divider,
 } from "@mui/material";
-import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import Image from "next/image";
 import Link from "next/link";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import BusinessIcon from "@mui/icons-material/Business";
-import PhoneIcon from "@mui/icons-material/Phone";
-import StorefrontIcon from "@mui/icons-material/Storefront";
-import { RxCross2 } from "react-icons/rx";
+import React, { useEffect, useRef, useState } from "react";
 
 interface NavBarProps {
 	activeComponent: string;
@@ -78,6 +73,23 @@ export default function StoreNavBar({ activeComponent }: NavBarProps) {
 		},
 	];
 
+	const lastScrollTop = useRef<any>(0);
+	const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+
+	const handleScroll = () => {
+		const { pageYOffset } = window;
+		if (pageYOffset > lastScrollTop.current) setIsNavbarVisible(false);
+		else if (pageYOffset < lastScrollTop.current) setIsNavbarVisible(true);
+		lastScrollTop.current = pageYOffset;
+	};
+
+	useEffect(() => {
+		window.addEventListener("scroll", handleScroll, {
+			passive: true,
+		});
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
 	return (
 		<>
 			<link
@@ -102,6 +114,13 @@ export default function StoreNavBar({ activeComponent }: NavBarProps) {
 								: isExtraLargeScreen
 									? "3rem"
 									: "3rem",
+				}}
+				style={{
+					transition: "all 0.3s ease-in-out",
+					height: "var(--header-height)",
+					translate: isNavbarVisible
+						? "0"
+						: "0 calc(-1 * var(--header-height))",
 				}}
 			>
 				<Toolbar sx={{ p: "0.5rem" }}>

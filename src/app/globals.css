@@ -24,3 +24,11 @@
 .email-card-color {
 	background: none;
 }
+
+:root {
+	--header-height: 84px;
+}
+
+* {
+	scroll-behavior: smooth;
+}
