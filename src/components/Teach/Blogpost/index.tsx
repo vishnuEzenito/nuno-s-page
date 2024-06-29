@@ -505,6 +505,7 @@ export default function BlogPost({ postId }: PostDetails) {
 							children={blogPostData.fields.Content}
 							remarkPlugins={[remarkGfm]}
 							components={customMarkdownComponents as any}
+							className="whitespace-pre-wrap"
 						/>
 					</Box>
 				</>

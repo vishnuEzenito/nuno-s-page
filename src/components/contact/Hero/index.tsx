@@ -1,24 +1,11 @@
+"use client";
 // components/HeroCarousel.js
+import { Box, ButtonBase, Paper, TextField, Typography } from "@mui/material";
+import { useState } from "react";
 
-import React, { useEffect, useState } from "react";
-import Carousel from "react-material-ui-carousel";
-import {
-	Button,
-	Typography,
-	Grid,
-	Box,
-	ButtonBase,
-	Paper,
-} from "@mui/material";
-import { TextField, Alert, AlertTitle } from "@mui/material";
-
-import { Toolbar } from "@mui/material";
-import Link from "next/link";
-
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { JoinMaillist } from "@/components/Modals";
 import { useTheme } from "@mui/material/styles";
-import Skeleton from "@mui/material/Skeleton";
-import Stack from "@mui/material/Stack";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import "../../../fonts/fonts.css";
 
 const Hero = () => {
@@ -27,6 +14,7 @@ const Hero = () => {
 	const isMediumScreen = useMediaQuery(theme.breakpoints.between("md", "lg"));
 	const isLargeScreen = useMediaQuery(theme.breakpoints.between("lg", "xl"));
 	const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
+	const [openMailListPopup, setOpenMailListPopup] = useState(false);
 
 	return (
 		<>
@@ -57,7 +45,7 @@ const Hero = () => {
 									: "4.5rem",
 				}}
 			>
-				{/* <Typography
+				<Typography
 					variant="h1"
 					sx={{
 						textAlign: "center",
@@ -194,13 +182,11 @@ const Hero = () => {
 							</Typography>
 						</Paper>
 					</ButtonBase>
-				</Box> */}
-				<iframe
-					width="100%"
-					height="560px"
-					src="https://cdn.forms-content-1.sg-form.com/96c5f4ba-3263-11ef-b76b-f25000daa598"
-				/>
+				</Box>
 			</Box>
+			{openMailListPopup ? (
+				<JoinMaillist onClose={() => setOpenMailListPopup(false)} />
+			) : null}
 		</>
 	);
 };

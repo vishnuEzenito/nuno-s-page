@@ -1,4 +1,4 @@
-import { FreeSampleModal, JoinWaitlist } from "@/components/Home";
+import { FreeSampleModal, JoinWaitlist } from "@/components/Modals";
 import { Box, ButtonBase, Grid, Paper, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";

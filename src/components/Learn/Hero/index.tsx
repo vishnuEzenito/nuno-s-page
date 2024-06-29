@@ -160,9 +160,8 @@ const Hero = () => {
 								mt: "0.5rem",
 							}}
 						>
-							Take assessments, play around with filled canvas
-							templates and refer other resources to master
-							negotiation.
+							Learn from Canvas examples, self-assessments, and
+							other resources
 						</Typography>
 						<Box sx={{ display: "flex", flexDirection: "row" }}>
 							<ButtonBase

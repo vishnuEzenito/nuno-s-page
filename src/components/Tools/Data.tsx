@@ -44,11 +44,16 @@ const ToolsData: React.FC<ToolsDataProps> = ({ id, toolData }) => {
 								>
 									{toolData?.Toolname}
 								</h1>
+								<p className="whitespace-pre-wrap">
+									{toolData.oneLineSummary}
+								</p>
 								<hr className="h-1 w-full bg-[#E3E3E3]" />
-								<span className="flex justify-start items-center gap-2">
+								<span className="flex justify-start items-center gap-2 whitespace-pre-wrap">
 									<LuBox /> {toolData.category}
 								</span>
-								<span>Use Case: {toolData.useCase}</span>
+								<span className="whitespace-pre-wrap">
+									Use Case: {toolData.useCase}
+								</span>
 							</div>
 						</div>
 						{/* toolData.oneLineSummary ? (
@@ -67,7 +72,9 @@ const ToolsData: React.FC<ToolsDataProps> = ({ id, toolData }) => {
 								>
 									Purpose
 								</h2>
-								<p>{toolData.purpose}</p>
+								<p className="whitespace-pre-wrap">
+									{toolData.purpose}
+								</p>
 							</div>
 						) : null}
 						{toolData.whenToUse ? (
@@ -80,7 +87,9 @@ const ToolsData: React.FC<ToolsDataProps> = ({ id, toolData }) => {
 								>
 									When to Use
 								</h2>
-								<p>{toolData.whenToUse}</p>
+								<p className="whitespace-pre-wrap">
+									{toolData.whenToUse}
+								</p>
 							</div>
 						) : null}
 						{toolData.references ? (
@@ -93,7 +102,9 @@ const ToolsData: React.FC<ToolsDataProps> = ({ id, toolData }) => {
 								>
 									References
 								</h2>
-								<p>{toolData.references}</p>
+								<p className="whitespace-pre-wrap">
+									{toolData.references}
+								</p>
 							</div>
 						) : null}
 						<Box

@@ -71,7 +71,7 @@ const useProductList = () => {
 	const fetchCanvasData = async () => {
 		try {
 			const response = await axios.get(
-				"https://api.airtable.com/v0/appkag7HFvxhwiXEZ/tblo4io5mWE9l6evk",
+				"https://api.airtable.com/v0/appkag7HFvxhwiXEZ/tblo4io5mWE9l6evk?sort[0][field]=id&sort[0][direction]=asc",
 				{
 					headers: {
 						Authorization:
@@ -81,6 +81,7 @@ const useProductList = () => {
 			);
 
 			// Update HomeData with the fetched data
+			console.log("in this shitty hook", response.data.records);
 			HomeData.canvas.list = response.data.records;
 
 			return response.data;

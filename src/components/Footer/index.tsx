@@ -165,41 +165,6 @@ export default function Footer() {
 							sx={{
 								display: "flex",
 								flexDirection: isSmallScreen ? "column" : "row",
-								alignItems: isSmallScreen ? "center" : "start",
-								mt: "2rem",
-							}}
-						>
-							<Typography
-								variant="subtitle2"
-								sx={{
-									whiteSpace: isMediumScreen
-										? "balance"
-										: "break-spaces",
-									textAlign: isSmallScreen
-										? "center"
-										: "left",
-									fontFamily: "classicsans",
-									fontWeight: "light",
-									color: "#fff",
-									fontSize: isSmallScreen ? "14px" : "16px",
-									mt: "0.5rem",
-								}}
-								component="a"
-								href="mailto:contact@impactnegotiations.org"
-							>
-								contact@impactnegotiations.org
-							</Typography>
-						</Grid>
-						<Grid
-							item
-							key={"menu"}
-							xs={12}
-							md={4}
-							lg={4}
-							gap={isSmallScreen ? 2 : 4}
-							sx={{
-								display: "flex",
-								flexDirection: isSmallScreen ? "column" : "row",
 								alignItems: "center",
 								textAlign: "center",
 								mt: "2rem",
@@ -225,46 +190,38 @@ export default function Footer() {
 						</Grid>
 						<Grid
 							item
-							key={"icons"}
+							key={"menu"}
 							xs={12}
 							md={4}
 							lg={4}
-							sx={{ mt: "2rem" }}
+							gap={isSmallScreen ? 2 : 4}
+							sx={{
+								display: "flex",
+								flexDirection: isSmallScreen ? "column" : "row",
+								alignItems: isSmallScreen ? "center" : "start",
+								mt: "2rem",
+							}}
 						>
-							<Box
+							<Typography
+								variant="subtitle2"
 								sx={{
-									display: "flex",
-									flexDirection: "row",
-									justifyContent: isSmallScreen
+									whiteSpace: isMediumScreen
+										? "balance"
+										: "break-spaces",
+									textAlign: isSmallScreen
 										? "center"
-										: "end",
+										: "left",
+									fontFamily: "classicsans",
+									fontWeight: "light",
+									color: "#fff",
+									fontSize: isSmallScreen ? "14px" : "16px",
+									mt: "0.5rem",
 								}}
+								component="a"
+								href="mailto:contact@impactnegotiations.org"
 							>
-								<Image
-									src="/vectors/instagram.svg"
-									alt="phone icon"
-									width={24}
-									height={24}
-									className="object-fit"
-									style={{ margin: "0.5rem" }}
-								/>
-								<Image
-									src="/vectors/linkedin.svg"
-									alt="phone icon"
-									width={24}
-									height={24}
-									className="object-fit"
-									style={{ margin: "0.5rem" }}
-								/>
-								<Image
-									src="/vectors/whatsapp.svg"
-									alt="phone icon"
-									width={24}
-									height={24}
-									className="object-fit"
-									style={{ margin: "0.5rem" }}
-								/>
-							</Box>
+								contact@impactnegotiations.org
+							</Typography>
 						</Grid>
 					</Grid>
 				</Box>

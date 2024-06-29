@@ -218,11 +218,15 @@ const Hero = () => {
 								gap: "2rem",
 							}}
 						>
-							<ButtonBase
-								sx={{
-									mt: "2rem",
+							<a
+								href="https://www.linkedin.com/in/nunodelicado/"
+								target="_blank"
+								style={{
+									marginTop: "2rem",
 									borderRadius: "12px",
 									width: "auto",
+									color: "#000000",
+									textDecoration: "none",
 								}}
 							>
 								<Linkedin
@@ -230,20 +234,7 @@ const Hero = () => {
 									size={24}
 									style={{ marginTop: "1px" }}
 								/>
-							</ButtonBase>
-							<ButtonBase
-								sx={{
-									mt: "2rem",
-									borderRadius: "12px",
-									width: "auto",
-								}}
-							>
-								<Twitter
-									color="#000000"
-									size={24}
-									style={{ marginTop: "1px" }}
-								/>
-							</ButtonBase>
+							</a>
 						</Box>
 					</Grid>
 					<Grid item key={"image2"} xs={12} md={6} lg={6}>

@@ -110,7 +110,7 @@ export default function Assessments() {
 						mb: "0.5rem",
 					}}
 				>
-					Negotiation Assessments
+					Assessments
 				</Typography>
 				<Typography
 					variant="subtitle2"
@@ -132,8 +132,8 @@ export default function Assessments() {
 										: "4.5rem",
 					}}
 				>
-					Take our quizzes, assessments and get individual insights to
-					help you develop as a negotiator
+					Learn about yourself and focus efforts to develop as a
+					negotiator
 				</Typography>
 				<div
 					style={{
@@ -167,127 +167,133 @@ export default function Assessments() {
 										}}
 									>
 										{/* @ts-ignore */}
-										<Paper
-											onClick={() => {
-												if (
-													item.fields.tag === "Paid"
-												) {
-													handleClick();
-												} else if (
-													item.fields.tag === "Free"
-												) {
-													window.location.href =
-														item.fields.formlink;
-												}
-											}}
-											disabled={
-												item.fields.tag === "Paid" &&
-												!stripe
-											}
-											key={index}
-											sx={{
-												position: "relative",
-												borderRadius: "16px",
-												height: isSmallScreen
-													? "100%"
-													: "417px",
-												width: isSmallScreen
-													? "300px"
-													: "314px",
-												pb: "2rem",
-											}}
+										<Tooltip
+											title={item.fields.assessmentname}
+											arrow
 										>
 											<Paper
-												elevation={0}
-												sx={{
-													background:
+												onClick={() => {
+													if (
 														item.fields.tag ===
 														"Paid"
-															? "#B34038"
-															: item.fields
-																		.tag ===
-																  "Free"
-																? "#43C4F2"
-																: "#defaultColor", // Set a default color if neither condition is met
-													position: "absolute",
-													borderRadius: "100px",
-													top: 0,
+													) {
+														handleClick();
+													} else if (
+														item.fields.tag ===
+														"Free"
+													) {
+														window.open(
+															item.fields
+																.formlink,
+															"_blank"
+														);
+													}
+												}}
+												key={index}
+												sx={{
+													position: "relative",
+													borderRadius: "16px",
 													height: isSmallScreen
-														? "auto"
-														: "auto",
+														? "100%"
+														: "417px",
 													width: isSmallScreen
-														? "auto"
-														: "auto",
-													m: "1rem",
+														? "300px"
+														: "314px",
+													pb: "2rem",
+													cursor: "pointer",
 												}}
 											>
-												<Typography
-													variant="body2"
-													component="div"
+												<Paper
+													elevation={0}
 													sx={{
-														color: "#fff",
-														fontFamily:
-															"CircularStd, sans-serif",
-														fontWeight: 400,
-														fontSize: isSmallScreen
-															? "10px"
-															: "12px",
-														px: "1rem",
-														py: "0.41rem",
+														background:
+															item.fields.tag ===
+															"Paid"
+																? "#B34038"
+																: item.fields
+																			.tag ===
+																	  "Free"
+																	? "#43C4F2"
+																	: "#defaultColor", // Set a default color if neither condition is met
+														position: "absolute",
+														borderRadius: "100px",
+														top: 0,
+														height: isSmallScreen
+															? "auto"
+															: "auto",
+														width: isSmallScreen
+															? "auto"
+															: "auto",
+														m: "1rem",
 													}}
 												>
-													{/* @ts-ignore */}
-													{item.fields.tag}
-												</Typography>
-											</Paper>
+													<Typography
+														variant="body2"
+														component="div"
+														sx={{
+															color: "#fff",
+															fontFamily:
+																"CircularStd, sans-serif",
+															fontWeight: 400,
+															fontSize:
+																isSmallScreen
+																	? "10px"
+																	: "12px",
+															px: "1rem",
+															py: "0.41rem",
+														}}
+													>
+														{/* @ts-ignore */}
+														{item.fields.tag}
+													</Typography>
+												</Paper>
 
-											{/* @ts-ignore */}
-											<img
-												src={
-													item.fields.imageurl[0].url
-												}
-												alt={item.fields.assessmentname}
-												style={{
-													width: "100%",
-													height: "60%",
-													objectFit: "cover",
-													borderTopLeftRadius: "16px",
-													borderTopRightRadius:
-														"16px",
-												}}
-											/>
-											<Box
-												sx={{
-													p: "1rem",
-													height: "100%",
-													display: "flex",
-													flexDirection: "column",
-												}}
-											>
+												{/* @ts-ignore */}
+												<img
+													src={
+														item.fields.imageurl[0]
+															.url
+													}
+													alt={
+														item.fields
+															.assessmentname
+													}
+													style={{
+														width: "100%",
+														height: "60%",
+														objectFit: "cover",
+														borderTopLeftRadius:
+															"16px",
+														borderTopRightRadius:
+															"16px",
+													}}
+												/>
 												<Box
 													sx={{
+														p: "1rem",
+														height: "100%",
 														display: "flex",
-														flexDirection: "row",
-														width: "100%",
-														pt: "0.75rem",
+														flexDirection: "column",
 													}}
 												>
 													<Box
 														sx={{
-															textAlign: "left",
-															width: "90%",
-															whiteSpace:
-																"break-spaces",
-															p: "0",
+															display: "flex",
+															flexDirection:
+																"row",
+															width: "100%",
+															pt: "0.75rem",
 														}}
 													>
-														{/* @ts-ignore */}
-														<Tooltip
-															title={
-																item.fields
-																	.assessmentname
-															}
-															arrow
+														<Box
+															sx={{
+																textAlign:
+																	"left",
+																width: "90%",
+																whiteSpace:
+																	"break-spaces",
+																p: "0",
+															}}
 														>
 															<Typography
 																variant="body2"
@@ -317,64 +323,67 @@ export default function Assessments() {
 																		.assessmentname
 																}
 															</Typography>
-														</Tooltip>
+														</Box>
+														<Box
+															sx={{
+																textAlign:
+																	"end",
+																width: "10%",
+																whiteSpace:
+																	"break-spaces",
+																p: "0",
+																display: "flex",
+																flexDirection:
+																	"row",
+															}}
+														>
+															<ArrowUpRight
+																color="#333333"
+																size={24}
+																style={{
+																	marginTop:
+																		"4px",
+																}}
+															/>
+														</Box>
 													</Box>
 													<Box
 														sx={{
-															textAlign: "end",
-															width: "10%",
-															whiteSpace:
-																"break-spaces",
-															p: "0",
 															display: "flex",
 															flexDirection:
 																"row",
+															width: "100%",
+															pt: "0.75rem",
 														}}
 													>
-														<ArrowUpRight
-															color="#333333"
-															size={24}
-															style={{
-																marginTop:
-																	"4px",
+														<Typography
+															variant="body2"
+															component="div"
+															sx={{
+																color: "#4D4D4D",
+																fontFamily:
+																	"classicsans",
+																fontWeight:
+																	"light",
+																fontSize:
+																	isSmallScreen
+																		? "14px"
+																		: "16px",
+																pl: "4px",
+																whiteSpace:
+																	"pre-wrap", // or 'normal' depending on your preference
 															}}
-														/>
+														>
+															{/* @ts-ignore */}
+															{
+																item.fields
+																	.description
+															}
+														</Typography>
 													</Box>
 												</Box>
-												<Box
-													sx={{
-														display: "flex",
-														flexDirection: "row",
-														width: "100%",
-														pt: "0.75rem",
-													}}
-												>
-													<Typography
-														variant="body2"
-														component="div"
-														sx={{
-															color: "#4D4D4D",
-															fontFamily:
-																"classicsans",
-															fontWeight: "light",
-															fontSize:
-																isSmallScreen
-																	? "14px"
-																	: "16px",
-															pl: "4px",
-															whiteSpace:
-																"pre-wrap", // or 'normal' depending on your preference
-														}}
-													>
-														{/* @ts-ignore */}
-														{
-															item.fields
-																.description
-														}
-													</Typography>
-												</Box>
-											</Box>
-										</Paper>
+											</Paper>
+										</Tooltip>
 									</Box>
 								)
 							)}

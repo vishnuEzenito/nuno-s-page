@@ -199,7 +199,7 @@ const Hero = () => {
 												py: "0.5rem",
 											}}
 										>
-											Know More
+											Learn More
 										</Typography>
 									</Paper>
 								</Link>

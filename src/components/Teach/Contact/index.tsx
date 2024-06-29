@@ -118,7 +118,7 @@ const Contact = () => {
 					Contact us to request support to become a Impact
 					Negotiations trainer
 				</Typography>
-				<Box
+				{/* <Box
 					sx={{
 						gap: "1rem",
 						display: "flex",
@@ -214,7 +214,17 @@ const Contact = () => {
 							</Typography>
 						</Paper>
 					</ButtonBase>
-				</Box>
+				</Box> */}
+				<iframe
+					src="https://docs.google.com/forms/d/e/1FAIpQLSd1KdaJk8Jn5Vb9SIjZVEoz2msWykufbAIAyB6JcRVjy5xTqw/viewform?embedded=true"
+					width="640"
+					height="2500"
+					style={{
+						maxW: "100%",
+					}}
+				>
+					Loading…
+				</iframe>
 			</Box>
 		</>
 	);
