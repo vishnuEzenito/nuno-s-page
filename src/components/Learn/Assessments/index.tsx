@@ -173,7 +173,7 @@ export default function Assessments() {
 										>
 											<Paper
 												onClick={() => {
-													if (
+													/* if (
 														item.fields.tag ===
 														"Paid"
 													) {
@@ -187,6 +187,15 @@ export default function Assessments() {
 																.formlink,
 															"_blank"
 														);
+													} */
+													if (item.fields.formlink) {
+														window.open(
+															item.fields
+																.formlink,
+															"_blank"
+														);
+													} else {
+														handleClick();
 													}
 												}}
 												key={index}

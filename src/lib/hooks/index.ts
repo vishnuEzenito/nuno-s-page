@@ -28,7 +28,7 @@ const useProductList = () => {
 	const fetchAssessmentData = async () => {
 		try {
 			const response = await axios.get(
-				"https://api.airtable.com/v0/appkag7HFvxhwiXEZ/tblz00iwd6V4uDbir",
+				"https://api.airtable.com/v0/appkag7HFvxhwiXEZ/tblz00iwd6V4uDbir?sort[0][field]=id&sort[0][direction]=asc",
 				{
 					headers: {
 						Authorization:
