@@ -32,7 +32,17 @@ const ToolsData: React.FC<ToolsDataProps> = ({ id, toolData }) => {
 				<button
 					className="w-12 h-12 rounded-full p-2 bg-[transparent] hover:bg-[rgba(0,0,0,0.05)] transition-all ease-in-out duration-200"
 					onClick={() => {
-						router.push(`/tools?ref=${id}`);
+						const args = new URLSearchParams(
+							window.location.search
+						);
+						const newTab = args.get("tab");
+						if (newTab) {
+							args.set("tab", newTab);
+						} else {
+							args.set("tab", "category");
+						}
+						router.push(`/tools?ref=${id}&${args.toString()}`);
+						// router.push(`/tools?ref=${id}&tab=${new URLSearchParams(window.location.search).get("tab")}`);
 					}}
 				>
 					<ArrowLeft className="w-full h-full" />
@@ -43,7 +53,7 @@ const ToolsData: React.FC<ToolsDataProps> = ({ id, toolData }) => {
 					<>
 						<div className="jumbotron w-full flex justify-start items-center gap-4 p-8 rounded-xl shadow-xl">
 							<img
-								src={toolData.icon?.[0]?.url}
+								src={toolData.drive_icon_link}
 								alt={toolData.icon?.[0]?.filename}
 								width={toolData.icon?.[0]?.width}
 								height={toolData.icon?.[0]?.height}

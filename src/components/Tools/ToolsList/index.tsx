@@ -18,10 +18,13 @@ type ToolsListProps = {
 };
 
 const ToolsList: React.FC<ToolsListProps> = ({ tools }) => {
-	const [activeTool, setActiveTool] = useState<ToolId>("negotiate");
-	const [viewOption, setViewOption] = useState<ToolViewOption>("category");
 	const searchParams = useSearchParams();
 	const focusedToolId = searchParams.get("ref");
+	const focusedTab = searchParams.get("tab");
+	const [activeTool, setActiveTool] = useState<ToolId>(
+		focusedTab || "negotiate"
+	);
+	const [viewOption, setViewOption] = useState<ToolViewOption>("category");
 
 	const getViewableItems = (
 		activeToolId: ToolId,
@@ -62,7 +65,7 @@ const ToolsList: React.FC<ToolsListProps> = ({ tools }) => {
 	useEffect(() => {
 		if (tools) {
 			const initialViewableItems = getViewableItems(
-				"negotiate",
+				focusedTab || "negotiate",
 				"category"
 			);
 			setViewableItems(initialViewableItems);
@@ -175,7 +178,7 @@ const ToolsList: React.FC<ToolsListProps> = ({ tools }) => {
 						<div className={classes("-block-items")}>
 							{block.items.map((item) => (
 								<Link
-									href={`/tools/${item.slug}`}
+									href={`/tools/${item.slug}?tab=${activeTool}`}
 									className={classes("-block-item", {
 										"-block-item--focused":
 											item.slug === focusedToolId,

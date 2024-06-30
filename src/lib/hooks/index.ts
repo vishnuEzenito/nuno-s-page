@@ -145,7 +145,7 @@ const useProductList = () => {
 							category: item?.fields?.category,
 							useCase: item?.fields?.useCase,
 							slug: item?.fields?.uuid,
-							icon: item?.fields?.icon?.[0]?.url,
+							icon: item?.fields?.drive_icon_link,
 							id: item?.fields?.Sectionid?.[0],
 						});
 					}
