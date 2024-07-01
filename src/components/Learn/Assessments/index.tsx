@@ -14,7 +14,7 @@ import {
 	useMediaQuery,
 	useTheme,
 } from "@mui/material";
-import { loadStripe } from "@stripe/stripe-js";
+import { Stripe, loadStripe } from "@stripe/stripe-js";
 import { ArrowUpRight } from "react-feather";
 import "../../../fonts/fonts.css";
 
@@ -53,9 +53,9 @@ export default function Assessments() {
 				scrollOffset;
 		}
 	};
-	const [stripe, setStripe] = useState(null);
+	const [stripe, setStripe] = useState<Stripe | null>(null);
 
-	const handleClick = async () => {
+	const handleClick = async (redirect: string) => {
 		if (!stripe) return;
 		// @ts-ignore
 		const { error } = await stripe.redirectToCheckout({
@@ -63,7 +63,7 @@ export default function Assessments() {
 				{ price: "price_1PI2OU18WhMcYo2CCFaLHJrx", quantity: 1 },
 			],
 			mode: "payment",
-			successUrl: "https://impactnegotiations.vercel.app/",
+			successUrl: redirect,
 			cancelUrl: "https://impactnegotiations.vercel.app/learn",
 		});
 
@@ -173,29 +173,22 @@ export default function Assessments() {
 										>
 											<Paper
 												onClick={() => {
-													/* if (
-														item.fields.tag ===
-														"Paid"
-													) {
-														handleClick();
-													} else if (
-														item.fields.tag ===
-														"Free"
-													) {
-														window.open(
-															item.fields
-																.formlink,
-															"_blank"
-														);
-													} */
-													if (item.fields.formlink) {
-														window.open(
-															item.fields
-																.formlink,
-															"_blank"
-														);
-													} else {
-														handleClick();
+													if (item.fields.formLink) {
+														if (
+															item.fields.tag ===
+															"Paid"
+														) {
+															handleClick(
+																item.fields
+																	.formLink
+															);
+														} else {
+															window.open(
+																item.fields
+																	.formLink,
+																"_blank"
+															);
+														}
 													}
 												}}
 												key={index}
