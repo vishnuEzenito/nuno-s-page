@@ -139,7 +139,12 @@ const ToolsData: React.FC<ToolsDataProps> = ({ id, toolData }) => {
 						>
 							<ButtonBase
 								role="link"
-								onClick={() => setOpenJoinWaitlistPopup(true)}
+								onClick={() =>
+									window.open(
+										"https://amzn.to/3xvdJZy",
+										"_blank"
+									)
+								}
 								sx={{
 									mt: "2rem",
 									borderRadius: "12px",
